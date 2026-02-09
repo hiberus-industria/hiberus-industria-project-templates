@@ -1,0 +1,2 @@
+src/Services/*.client/
+src/Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure/Persistence/Migrations/*.cs
