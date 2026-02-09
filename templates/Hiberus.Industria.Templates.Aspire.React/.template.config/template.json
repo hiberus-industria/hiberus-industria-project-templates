@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/template",
+  "author": "Hiberus industria",
+  "classifications": ["Aspire", "Web", "React", "API"],
+  "name": "App template (React + ASP.NET Core)",
+  "identity": "Hiberus.Industria.Templates.Aspire.React",
+  "shortName": "aspire-react",
+  "sourceName": "Templates.Aspire.React",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}
