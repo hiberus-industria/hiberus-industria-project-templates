@@ -1,7 +1,14 @@
 <Solution>
-  <Project Path="src/Services/frontend/frontend.esproj">
-    <Build />
-  </Project>
-  <Project Path="src/Hiberus.Industria.Templates.Aspire.React.AppHost/Hiberus.Industria.Templates.Aspire.React.AppHost.csproj" />
-  <Project Path="src/Services/Hiberus.Industria.Templates.Aspire.React.Server/Hiberus.Industria.Templates.Aspire.React.Server.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/Hiberus.Industria.Templates.Aspire.React.AppHost/Hiberus.Industria.Templates.Aspire.React.AppHost.csproj" />
+  </Folder>
+  <Folder Name="/src/Libraries/">
+    <Project Path="src/Libraries/Hiberus.Industria.Templates.Aspire.React.ServiceDefaults/Hiberus.Industria.Templates.Aspire.React.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/">
+    <Project Path="src/Services/frontend/frontend.esproj">
+      <Build />
+    </Project>
+    <Project Path="src/Services/Hiberus.Industria.Templates.Aspire.React.Server/Hiberus.Industria.Templates.Aspire.React.Server.csproj" />
+  </Folder>
 </Solution>

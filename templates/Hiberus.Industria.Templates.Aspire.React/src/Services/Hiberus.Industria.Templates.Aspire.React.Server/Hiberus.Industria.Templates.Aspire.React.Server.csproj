@@ -9,4 +9,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Hiberus.Industria.Templates.Aspire.React.ServiceDefaults\Hiberus.Industria.Templates.Aspire.React.ServiceDefaults.csproj" />
+  </ItemGroup>
 </Project>
