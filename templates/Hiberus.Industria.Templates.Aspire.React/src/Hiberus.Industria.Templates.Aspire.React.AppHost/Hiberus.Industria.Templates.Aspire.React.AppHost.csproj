@@ -4,26 +4,15 @@
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);IDE0005;SA0001</NoWarn>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.JavaScript" />
     <PackageReference Include="Aspire.Hosting.PostgreSQL" />
     <PackageReference Include="Aspire.Hosting.Docker" />
     <PackageReference Include="Aspire.Hosting.Keycloak" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="../Services/Hiberus.Industria.Templates.Aspire.React.Server/Hiberus.Industria.Templates.Aspire.React.Server.csproj" />
   </ItemGroup>
-  <Target Name="Husky" BeforeTargets="Restore;CollectPackageReferences" Condition="'$(HUSKY)' != 0">
-    <Exec
-      Command="dotnet tool restore"
-      StandardOutputImportance="Low"
-      StandardErrorImportance="High"
-    />
-    <Exec
-      Command="dotnet husky install"
-      StandardOutputImportance="Low"
-      StandardErrorImportance="High"
-      WorkingDirectory="..\.."
-    />
-  </Target>
 </Project>

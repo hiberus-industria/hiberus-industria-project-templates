@@ -14,6 +14,15 @@ internal static class Program
     public static async Task Main(string[] args)
     {
         IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(args);
+
+        IResourceBuilder<ProjectResource> server =
+            builder.AddProject<Projects.Hiberus_Industria_Templates_Aspire_React_Server>("server");
+
+        builder
+            .AddViteApp("client", "../Services/Hiberus.Industria.Templates.Aspire.React.Client")
+            .WithReference(server)
+            .WaitFor(server);
+
         // Build and run the distributed application
         await builder.Build().RunAsync().ConfigureAwait(false);
     }

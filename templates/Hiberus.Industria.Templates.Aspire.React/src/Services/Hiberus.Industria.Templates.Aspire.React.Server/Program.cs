@@ -21,6 +21,7 @@ public static class Program
         // Add services to the container.
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddProblemDetails();
+        builder.Services.AddOpenApi();
         builder.Services.AddControllers();
 
         WebApplication app = builder.Build();
@@ -28,13 +29,43 @@ public static class Program
         app.MapDefaultEndpoints();
 
         // Configure the HTTP request pipeline.
-        app.UseSwagger();
-        app.UseSwaggerUI();
-
         app.UseExceptionHandler();
         app.UseAuthentication();
         app.UseAuthorization();
         app.MapControllers();
+
+        string[] summaries =
+        [
+            "Freezing",
+            "Bracing",
+            "Chilly",
+            "Cool",
+            "Mild",
+            "Warm",
+            "Balmy",
+            "Hot",
+            "Sweltering",
+            "Scorching",
+        ];
+        RouteGroupBuilder api = app.MapGroup("/api");
+        api.MapGet(
+                "weatherforecast",
+                () =>
+                {
+                    return Enumerable
+                        .Range(1, 5)
+                        .Select(index =>
+                        {
+                            DateTime date = DateTime.Now.AddDays(index);
+                            var forecastDate = DateOnly.FromDateTime(date);
+                            int temperature = Random.Shared.Next(-20, 55);
+                            string summary = summaries[Random.Shared.Next(summaries.Length)];
+                            return new WeatherForecast(forecastDate, temperature, summary);
+                        })
+                        .ToArray();
+                }
+            )
+            .WithName("GetWeatherForecast");
 
         await app.RunAsync().ConfigureAwait(false);
     }

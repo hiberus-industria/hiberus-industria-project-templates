@@ -17,6 +17,14 @@ trim_trailing_whitespace = true
 [*{_AssemblyInfo.cs,.notsupported.cs,AsmOffsets.cs}]
 generated_code = true
 
+[**/*.generated.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.severity = none
+
+[src/Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure/Persistence/Migrations/*.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.severity = none
+
 # C# files
 [*.cs]
 # New line preferences
@@ -154,7 +162,6 @@ csharp_space_between_parentheses = false
 csharp_space_between_square_brackets = false
 
 # Custom rules
-dotnet_diagnostic.IDE0055.severity = none
 dotnet_diagnostic.SA1000.severity = none
 dotnet_diagnostic.SA1009.severity = none
 dotnet_diagnostic.SA1111.severity = none
@@ -219,69 +226,37 @@ dotnet_diagnostic.SA1633.severity = none
 dotnet_diagnostic.SA1200.severity = none
 dotnet_diagnostic.SA1642.severity = none
 dotnet_diagnostic.SA1206.severity = none
+dotnet_diagnostic.SA1313.severity = suggestion
 
+dotnet_diagnostic.IDE0055.severity = none
 dotnet_diagnostic.IDE0003.severity = none
 dotnet_diagnostic.IDE0005.severity = warning
 dotnet_diagnostic.IDE1006.severity = none
+dotnet_diagnostic.IDE0058.severity = none
 
 dotnet_diagnostic.AV1500.severity = none
 dotnet_diagnostic.AV1561.severity = none
+dotnet_diagnostic.AV1755.severity = suggestion
+dotnet_diagnostic.AV1210.severity = suggestion
+dotnet_diagnostic.AV1555.severity = suggestion
+dotnet_diagnostic.AV1000.severity = suggestion
+dotnet_diagnostic.AV1708.severity = suggestion
+dotnet_diagnostic.AV1115.severity = suggestion
 
 dotnet_diagnostic.CA5394.severity = suggestion
 dotnet_diagnostic.CA1852.severity = suggestion
 dotnet_diagnostic.CA1812.severity = suggestion
-
-# AV1755: Name of async method should end with Async or TaskAsync
-dotnet_diagnostic.AV1755.severity = suggestion
-
-# CA1515: Consider making public types internal
 dotnet_diagnostic.CA1515.severity = suggestion
-
-# CA1848: Use the LoggerMessage delegates
 dotnet_diagnostic.CA1848.severity = suggestion
-
-# AV1210: Catch a specific exception instead of Exception, SystemException or ApplicationException
-dotnet_diagnostic.AV1210.severity = suggestion
-
-# SA1313: Parameter names should begin with lower-case letter
-dotnet_diagnostic.SA1313.severity = suggestion
-
-# AV1555: Avoid using non-(nullable-)boolean named arguments
-dotnet_diagnostic.AV1555.severity = suggestion
-
-# MA0051: Method is too long
-dotnet_diagnostic.MA0051.severity = suggestion
-
-# AV1000: Type name contains the word 'and', which suggests it has multiple purposes
-dotnet_diagnostic.AV1000.severity = suggestion
-
-# AV1708: Type name contains term that should be avoided
-dotnet_diagnostic.AV1708.severity = suggestion
-
-# RCS1031: Remove unnecessary braces in switch section
-dotnet_diagnostic.RCS1031.severity = none
-
-# AV1115: Member or local function contains the word 'and', which suggests doing multiple things
-dotnet_diagnostic.AV1115.severity = suggestion
-
-# HLQ012: Consider using CollectionsMarshal.AsSpan()
-dotnet_diagnostic.HLQ012.severity = suggestion
-
-dotnet_diagnostic.IDE0058.severity = none
-
-# CA1822: Mark members as static
 dotnet_diagnostic.CA1822.severity = suggestion
 
-# S2325: Methods and properties that don't access instance data should be static
+dotnet_diagnostic.MA0051.severity = suggestion
+
+dotnet_diagnostic.RCS1031.severity = none
+
+dotnet_diagnostic.HLQ012.severity = suggestion
+
 dotnet_diagnostic.S2325.severity = none
-
-[src/Libraries/System.Net.Http/src/System/Net/Http/{SocketsHttpHandler/Http3RequestStream.cs,BrowserHttpHandler/BrowserHttpHandler.cs}]
-# disable CA2025, the analyzer throws a NullReferenceException when processing this file: https://github.com/dotnet/roslyn-analyzers/issues/7652
-dotnet_diagnostic.CA2025.severity = none
-
-# CA1707: Identifiers should not contain underscores
-[src/Tests/**/*.cs]
-dotnet_diagnostic.CA1707.severity = none
 
 # C++ Files
 [*.{cpp,h,in}]
@@ -313,8 +288,3 @@ indent_size = 2
 # Shell scripts
 [*.{cmd,bat}]
 end_of_line = crlf
-
-# Ignore generated code
-[src/Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure/Persistence/Migrations/*.cs]
-generated_code = true
-dotnet_analyzer_diagnostic.severity = none
