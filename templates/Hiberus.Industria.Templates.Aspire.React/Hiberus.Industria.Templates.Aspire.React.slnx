@@ -1,7 +1,7 @@
 <Solution>
-  <Project Path="frontend/frontend.esproj">
+  <Project Path="src/Services/frontend/frontend.esproj">
     <Build />
   </Project>
-  <Project Path="Hiberus.Industria.Templates.Aspire.React.AppHost/Hiberus.Industria.Templates.Aspire.React.AppHost.csproj" />
-  <Project Path="Hiberus.Industria.Templates.Aspire.React.Server/Hiberus.Industria.Templates.Aspire.React.Server.csproj" />
+  <Project Path="src/Hiberus.Industria.Templates.Aspire.React.AppHost/Hiberus.Industria.Templates.Aspire.React.AppHost.csproj" />
+  <Project Path="src/Services/Hiberus.Industria.Templates.Aspire.React.Server/Hiberus.Industria.Templates.Aspire.React.Server.csproj" />
 </Solution>

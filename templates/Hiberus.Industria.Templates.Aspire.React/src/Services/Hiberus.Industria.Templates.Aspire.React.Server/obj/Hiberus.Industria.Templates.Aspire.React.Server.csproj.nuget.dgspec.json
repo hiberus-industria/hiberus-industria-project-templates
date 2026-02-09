@@ -1,22 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\Hiberus.Industria.Templates.Aspire.React.Server\\Hiberus.Industria.Templates.Aspire.React.Server.csproj": {}
+    "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Services\\Hiberus.Industria.Templates.Aspire.React.Server\\Hiberus.Industria.Templates.Aspire.React.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\Hiberus.Industria.Templates.Aspire.React.Server\\Hiberus.Industria.Templates.Aspire.React.Server.csproj": {
+    "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Services\\Hiberus.Industria.Templates.Aspire.React.Server\\Hiberus.Industria.Templates.Aspire.React.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\Hiberus.Industria.Templates.Aspire.React.Server\\Hiberus.Industria.Templates.Aspire.React.Server.csproj",
+        "projectUniqueName": "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Services\\Hiberus.Industria.Templates.Aspire.React.Server\\Hiberus.Industria.Templates.Aspire.React.Server.csproj",
         "projectName": "Hiberus.Industria.Templates.Aspire.React.Server",
-        "projectPath": "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\Hiberus.Industria.Templates.Aspire.React.Server\\Hiberus.Industria.Templates.Aspire.React.Server.csproj",
+        "projectPath": "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Services\\Hiberus.Industria.Templates.Aspire.React.Server\\Hiberus.Industria.Templates.Aspire.React.Server.csproj",
         "packagesPath": "C:\\Users\\jblascoi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\Hiberus.Industria.Templates.Aspire.React.Server\\obj\\",
+        "outputPath": "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Services\\Hiberus.Industria.Templates.Aspire.React.Server\\obj\\",
         "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+          "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\NuGet.Config",
           "C:\\Users\\jblascoi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -25,7 +27,6 @@
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,6 +36,7 @@
           }
         },
         "warningProperties": {
+          "allWarningsAsErrors": true,
           "warnAsError": [
             "NU1605"
           ]
@@ -50,38 +52,161 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
+            "AsyncAwaitBestPractices": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[10.0.0, )",
+              "versionCentrallyManaged": true
             },
-            "Microsoft.Extensions.Http.Resilience": {
+            "CSharpGuidelinesAnalyzer": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[10.1.0, )"
+              "version": "[3.8.5, )",
+              "versionCentrallyManaged": true
             },
-            "Microsoft.Extensions.ServiceDiscovery": {
+            "ErrorProne.NET.CoreAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[10.1.0, )"
+              "version": "[0.1.2, )",
+              "versionCentrallyManaged": true
             },
-            "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
+            "MediatR": {
               "target": "Package",
-              "version": "[1.14.0, )"
+              "version": "[12.5.0, )",
+              "versionCentrallyManaged": true
             },
-            "OpenTelemetry.Extensions.Hosting": {
+            "Meziantou.Analyzer": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[1.14.0, )"
+              "version": "[2.0.252, )",
+              "versionCentrallyManaged": true
             },
-            "OpenTelemetry.Instrumentation.AspNetCore": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[1.14.0, )"
+              "version": "[10.0.0, )",
+              "versionCentrallyManaged": true
             },
-            "OpenTelemetry.Instrumentation.Http": {
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
-              "version": "[1.14.0, )"
+              "version": "[1.21.0, )",
+              "versionCentrallyManaged": true
             },
-            "OpenTelemetry.Instrumentation.Runtime": {
+            "Microsoft.VisualStudio.Threading.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[1.14.0, )"
+              "version": "[17.14.15, )",
+              "versionCentrallyManaged": true
+            },
+            "NetFabric.Hyperlinq.Analyzer": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.3.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Roslynator.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.14.1, )",
+              "versionCentrallyManaged": true
+            },
+            "Roslynator.CodeAnalysis.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.14.1, )",
+              "versionCentrallyManaged": true
+            },
+            "Roslynator.Formatting.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.14.1, )",
+              "versionCentrallyManaged": true
+            },
+            "SmartanAlyzers.ExceptionAnalyzer": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.10, )",
+              "versionCentrallyManaged": true
+            },
+            "SonarAnalyzer.CSharp": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.15.0.120848, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.1.118, )",
+              "versionCentrallyManaged": true
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[10.0.0, )",
+              "versionCentrallyManaged": true
             }
+          },
+          "centralPackageVersions": {
+            "Ardalis.Specification": "9.3.1",
+            "Ardalis.Specification.EntityFrameworkCore": "9.3.1",
+            "Aspire.Hosting.Docker": "13.1.0-preview.1.25616.3",
+            "Aspire.Hosting.JavaScript": "13.1.0",
+            "Aspire.Hosting.Keycloak": "13.1.0-preview.1.25616.3",
+            "Aspire.Hosting.PostgreSQL": "13.1.0",
+            "Aspire.Keycloak.Authentication": "13.1.0-preview.1.25616.3",
+            "Aspire.Npgsql.EntityFrameworkCore.PostgreSQL": "13.1.0",
+            "AsyncAwaitBestPractices": "10.0.0",
+            "CSharpGuidelinesAnalyzer": "3.8.5",
+            "Duende.AccessTokenManagement": "4.0.1",
+            "ErrorProne.NET.CoreAnalyzers": "0.1.2",
+            "FluentResults": "4.0.0",
+            "FluentValidation": "12.1.0",
+            "FluentValidation.DependencyInjectionExtensions": "12.1.0",
+            "Keycloak.AuthServices.Authorization": "2.7.0",
+            "Keycloak.AuthServices.OpenTelemetry": "1.0.0",
+            "Keycloak.AuthServices.Sdk": "2.7.0",
+            "MediatR": "12.5.0",
+            "Meziantou.Analyzer": "2.0.252",
+            "Microsoft.EntityFrameworkCore.Design": "10.0.0",
+            "Microsoft.Extensions.Hosting": "10.0.0",
+            "Microsoft.Extensions.Http.Resilience": "10.0.0",
+            "Microsoft.Extensions.ServiceDiscovery": "9.5.1",
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+            "Microsoft.VisualStudio.Threading.Analyzers": "17.14.15",
+            "NetFabric.Hyperlinq.Analyzer": "2.3.0",
+            "OpenTelemetry.Exporter.OpenTelemetryProtocol": "1.13.1",
+            "OpenTelemetry.Extensions.Hosting": "1.13.1",
+            "OpenTelemetry.Instrumentation.AspNetCore": "1.12.0",
+            "OpenTelemetry.Instrumentation.Http": "1.12.0",
+            "OpenTelemetry.Instrumentation.Runtime": "1.12.0",
+            "Refit": "8.0.0",
+            "Refit.HttpClientFactory": "8.0.0",
+            "Roslynator.Analyzers": "4.14.1",
+            "Roslynator.CodeAnalysis.Analyzers": "4.14.1",
+            "Roslynator.Formatting.Analyzers": "4.14.1",
+            "SmartanAlyzers.ExceptionAnalyzer": "1.0.10",
+            "SonarAnalyzer.CSharp": "10.15.0.120848",
+            "StyleCop.Analyzers": "1.1.118",
+            "Swashbuckle.AspNetCore": "10.0.0",
+            "Swashbuckle.AspNetCore.SwaggerUI": "10.0.0"
           },
           "imports": [
             "net461",
