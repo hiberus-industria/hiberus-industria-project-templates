@@ -4,11 +4,14 @@
     </Folder>
     <Folder Name="/src/Libraries/">
         <Project Path="src/Libraries/Hiberus.Industria.Templates.Aspire.React.ServiceDefaults/Hiberus.Industria.Templates.Aspire.React.ServiceDefaults.csproj" />
+        <Project Path="src/Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Application/Hiberus.Industria.Templates.Aspire.React.Server.Application.csproj" />
+        <Project Path="src/Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.csproj" />
     </Folder>
     <Folder Name="/src/Services/">
         <Project Path="src/Services/Hiberus.Industria.Templates.Aspire.React.Client/Hiberus.Industria.Templates.Aspire.React.Client.esproj">
             <Build />
         </Project>
         <Project Path="src/Services/Hiberus.Industria.Templates.Aspire.React.Server/Hiberus.Industria.Templates.Aspire.React.Server.csproj" />
+        <Project Path="src/Services/Hiberus.Industria.Templates.Aspire.React.Server.MigrationService/Hiberus.Industria.Templates.Aspire.React.Server.MigrationService.csproj" />
     </Folder>
 </Solution>

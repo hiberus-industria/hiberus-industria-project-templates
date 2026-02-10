@@ -2,6 +2,60 @@
   "version": 3,
   "targets": {
     "net10.0": {
+      "Ardalis.Specification/9.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/Ardalis.Specification.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Ardalis.Specification.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Ardalis.Specification.EntityFrameworkCore/9.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Ardalis.Specification": "9.3.1",
+          "Microsoft.EntityFrameworkCore": "9.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "9.0.8"
+        },
+        "compile": {
+          "lib/net9.0/Ardalis.Specification.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Ardalis.Specification.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Aspire.Npgsql.EntityFrameworkCore.PostgreSQL/13.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": "10.0.1",
+          "Npgsql.DependencyInjection": "10.0.0",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.0",
+          "Npgsql.OpenTelemetry": "10.0.0",
+          "OpenTelemetry.Extensions.Hosting": "1.14.0"
+        },
+        "compile": {
+          "lib/net10.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net10.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.targets": {}
+        }
+      },
       "AsyncAwaitBestPractices/10.0.0": {
         "type": "package",
         "compile": {
@@ -779,14 +833,14 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/10.0.0": {
+      "Microsoft.EntityFrameworkCore/10.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.0",
-          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.0"
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.1",
+          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.1"
         },
         "compile": {
-          "lib/net10.0/_._": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
             "related": ".xml"
           }
         },
@@ -799,10 +853,10 @@
           "buildTransitive/net10.0/Microsoft.EntityFrameworkCore.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/10.0.0": {
+      "Microsoft.EntityFrameworkCore.Abstractions/10.0.1": {
         "type": "package",
         "compile": {
-          "lib/net10.0/_._": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -812,7 +866,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/10.0.0": {
+      "Microsoft.EntityFrameworkCore.Analyzers/10.0.1": {
         "type": "package"
       },
       "Microsoft.EntityFrameworkCore.Design/10.0.0": {
@@ -844,13 +898,13 @@
           "build/net10.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/10.0.0": {
+      "Microsoft.EntityFrameworkCore.Relational/10.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.0"
+          "Microsoft.EntityFrameworkCore": "10.0.1"
         },
         "compile": {
-          "lib/net10.0/_._": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
             "related": ".xml"
           }
         },
@@ -935,6 +989,22 @@
         },
         "build": {
           "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/10.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.1"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Http.Diagnostics/10.0.0": {
@@ -1138,48 +1208,112 @@
           }
         }
       },
-      "OpenTelemetry/1.13.1": {
+      "Npgsql/10.0.0": {
         "type": "package",
-        "dependencies": {
-          "OpenTelemetry.Api.ProviderBuilderExtensions": "1.13.1"
-        },
         "compile": {
-          "lib/net9.0/OpenTelemetry.dll": {
-            "related": ".dll-keyless.pem;.dll-keyless.sig;.xml"
+          "lib/net10.0/Npgsql.dll": {
+            "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/OpenTelemetry.dll": {
-            "related": ".dll-keyless.pem;.dll-keyless.sig;.xml"
+          "lib/net10.0/Npgsql.dll": {
+            "related": ".xml"
           }
         }
       },
-      "OpenTelemetry.Api/1.13.1": {
+      "Npgsql.DependencyInjection/10.0.0": {
         "type": "package",
+        "dependencies": {
+          "Npgsql": "10.0.0"
+        },
         "compile": {
-          "lib/net9.0/OpenTelemetry.Api.dll": {
-            "related": ".dll-keyless.pem;.dll-keyless.sig;.xml"
+          "lib/net8.0/Npgsql.DependencyInjection.dll": {
+            "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/OpenTelemetry.Api.dll": {
-            "related": ".dll-keyless.pem;.dll-keyless.sig;.xml"
+          "lib/net8.0/Npgsql.DependencyInjection.dll": {
+            "related": ".xml"
           }
         }
       },
-      "OpenTelemetry.Api.ProviderBuilderExtensions/1.13.1": {
+      "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.0": {
         "type": "package",
         "dependencies": {
-          "OpenTelemetry.Api": "1.13.1"
+          "Microsoft.EntityFrameworkCore": "[10.0.0, 11.0.0)",
+          "Microsoft.EntityFrameworkCore.Relational": "[10.0.0, 11.0.0)",
+          "Npgsql": "10.0.0"
         },
         "compile": {
-          "lib/net9.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll": {
-            "related": ".dll-keyless.pem;.dll-keyless.sig;.xml"
+          "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll": {
-            "related": ".dll-keyless.pem;.dll-keyless.sig;.xml"
+          "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql.OpenTelemetry/10.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Npgsql": "10.0.0",
+          "OpenTelemetry.API": "1.14.0"
+        },
+        "compile": {
+          "lib/net8.0/Npgsql.OpenTelemetry.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.OpenTelemetry.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "OpenTelemetry/1.14.0": {
+        "type": "package",
+        "dependencies": {
+          "OpenTelemetry.Api.ProviderBuilderExtensions": "1.14.0"
+        },
+        "compile": {
+          "lib/net10.0/OpenTelemetry.dll": {
+            "related": ".dll.sigstore.json;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/OpenTelemetry.dll": {
+            "related": ".dll.sigstore.json;.xml"
+          }
+        }
+      },
+      "OpenTelemetry.Api/1.14.0": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/OpenTelemetry.Api.dll": {
+            "related": ".dll.sigstore.json;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/OpenTelemetry.Api.dll": {
+            "related": ".dll.sigstore.json;.xml"
+          }
+        }
+      },
+      "OpenTelemetry.Api.ProviderBuilderExtensions/1.14.0": {
+        "type": "package",
+        "dependencies": {
+          "OpenTelemetry.Api": "1.14.0"
+        },
+        "compile": {
+          "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll": {
+            "related": ".dll.sigstore.json;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll": {
+            "related": ".dll.sigstore.json;.xml"
           }
         }
       },
@@ -1199,19 +1333,19 @@
           }
         }
       },
-      "OpenTelemetry.Extensions.Hosting/1.13.1": {
+      "OpenTelemetry.Extensions.Hosting/1.14.0": {
         "type": "package",
         "dependencies": {
-          "OpenTelemetry": "1.13.1"
+          "OpenTelemetry": "1.14.0"
         },
         "compile": {
-          "lib/net9.0/OpenTelemetry.Extensions.Hosting.dll": {
-            "related": ".dll-keyless.pem;.dll-keyless.sig;.xml"
+          "lib/net10.0/OpenTelemetry.Extensions.Hosting.dll": {
+            "related": ".dll.sigstore.json;.xml"
           }
         },
         "runtime": {
-          "lib/net9.0/OpenTelemetry.Extensions.Hosting.dll": {
-            "related": ".dll-keyless.pem;.dll-keyless.sig;.xml"
+          "lib/net10.0/OpenTelemetry.Extensions.Hosting.dll": {
+            "related": ".dll.sigstore.json;.xml"
           }
         }
       },
@@ -1601,6 +1735,36 @@
           }
         }
       },
+      "Hiberus.Industria.Templates.Aspire.React.Server.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Ardalis.Specification": "9.3.1",
+          "Aspire.Npgsql.EntityFrameworkCore.PostgreSQL": "13.1.0",
+          "MediatR": "12.5.0"
+        },
+        "compile": {
+          "bin/placeholder/Hiberus.Industria.Templates.Aspire.React.Server.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Hiberus.Industria.Templates.Aspire.React.Server.Application.dll": {}
+        }
+      },
+      "Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Ardalis.Specification.EntityFrameworkCore": "9.3.1",
+          "Aspire.Npgsql.EntityFrameworkCore.PostgreSQL": "13.1.0",
+          "Hiberus.Industria.Templates.Aspire.React.Server.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.dll": {}
+        }
+      },
       "Hiberus.Industria.Templates.Aspire.React.ServiceDefaults/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -1627,6 +1791,68 @@
     }
   },
   "libraries": {
+    "Ardalis.Specification/9.3.1": {
+      "sha512": "GWrE6BA0smWFLbN+XPU2l5rDF9Uzelfbb3w35jJ0CGIat+p1ChbtLcbkvYRMEculBHOAo12omwAAOm3VFWkoJQ==",
+      "type": "package",
+      "path": "ardalis.specification/9.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "ardalis.specification.9.3.1.nupkg.sha512",
+        "ardalis.specification.nuspec",
+        "icon.png",
+        "lib/net8.0/Ardalis.Specification.dll",
+        "lib/net8.0/Ardalis.Specification.xml",
+        "lib/net9.0/Ardalis.Specification.dll",
+        "lib/net9.0/Ardalis.Specification.xml",
+        "lib/netstandard2.0/Ardalis.Specification.dll",
+        "lib/netstandard2.0/Ardalis.Specification.xml",
+        "readme-nuget.md"
+      ]
+    },
+    "Ardalis.Specification.EntityFrameworkCore/9.3.1": {
+      "sha512": "QbOo4E6HWdKXZ9QUrqcgiGN4EKtzt0kzGzqr2zc32q5QESzBrceJ3GX1ymWVdCCOzJO1+GPm+/a/5ovSkfrLoQ==",
+      "type": "package",
+      "path": "ardalis.specification.entityframeworkcore/9.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "ardalis.specification.entityframeworkcore.9.3.1.nupkg.sha512",
+        "ardalis.specification.entityframeworkcore.nuspec",
+        "icon.png",
+        "lib/net8.0/Ardalis.Specification.EntityFrameworkCore.dll",
+        "lib/net8.0/Ardalis.Specification.EntityFrameworkCore.xml",
+        "lib/net9.0/Ardalis.Specification.EntityFrameworkCore.dll",
+        "lib/net9.0/Ardalis.Specification.EntityFrameworkCore.xml",
+        "readme-nuget.md"
+      ]
+    },
+    "Aspire.Npgsql.EntityFrameworkCore.PostgreSQL/13.1.0": {
+      "sha512": "gc/tmvMUyF74jFIb6f2wDtCoDskOL2EDFz4xT86mhrLCc3HNkIx2MPTnz+Bj1NOEHtLtf7lo/JKpjBb6PAfCzw==",
+      "type": "package",
+      "path": "aspire.npgsql.entityframeworkcore.postgresql/13.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ConfigurationSchema.json",
+        "Icon.png",
+        "README.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "aspire.npgsql.entityframeworkcore.postgresql.13.1.0.nupkg.sha512",
+        "aspire.npgsql.entityframeworkcore.postgresql.nuspec",
+        "buildTransitive/net10.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.targets",
+        "buildTransitive/net8.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.targets",
+        "buildTransitive/net9.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.targets",
+        "lib/net10.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net10.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "lib/net8.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net8.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "lib/net9.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net9.0/Aspire.Npgsql.EntityFrameworkCore.PostgreSQL.xml"
+      ]
+    },
     "AsyncAwaitBestPractices/10.0.0": {
       "sha512": "HRK/K4MSlx0b3FZ+LMP3ZvbTS+Ts361lhwp47CQZaESX/9cl5UIKOC0fWb5AbGNZxj96pKRvl7/Wrxj/J8LG/g==",
       "type": "package",
@@ -2957,10 +3183,10 @@
         "microsoft.codeanalysis.workspaces.msbuild.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/10.0.0": {
-      "sha512": "hHa2amRjMyBLUH/KTML6FgIAhZ0VFYkhCKwWEax0rO6iNeM1P5MflyeQLE5dniSIOZHc3Oqyv5UIyTFO4e1Auw==",
+    "Microsoft.EntityFrameworkCore/10.0.1": {
+      "sha512": "QsXvZ8G7Dl7x09rlq0b2dye7QqfReMq8yGdl7Mffi3Ip+aTa+JUMixBZ4lhCs9Ygjz2e9tiUACstxI+ADkwaFg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/10.0.0",
+      "path": "microsoft.entityframeworkcore/10.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2969,14 +3195,14 @@
         "buildTransitive/net10.0/Microsoft.EntityFrameworkCore.props",
         "lib/net10.0/Microsoft.EntityFrameworkCore.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.10.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.10.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/10.0.0": {
-      "sha512": "C+TT9k7f1GQ8agOfV512K9iwrzi76RXVSDiLx+iWC9pz3QhEpSF1Dyk+FpVvd8ULQ+rqymfM8KQ7g48ttQVyMg==",
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.1": {
+      "sha512": "sp6Uq8Oc3RVGtmxLS3ZgzVeFHrpLNymsMudoeqRmB9pRTWgvq2S903sF5OnaaZmh4Bz6kpq7FwofE+DOhKJYvg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/10.0.0",
+      "path": "microsoft.entityframeworkcore.abstractions/10.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2984,21 +3210,21 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.10.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.10.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/10.0.0": {
-      "sha512": "TxHQq0kn0tpYs2ljeRl8jtmWk720B0nteqI6mAZM77HWJpYT9Zj8SkkBBlj8K3Yeq18a6NBjz6YutE+shEk4Ag==",
+    "Microsoft.EntityFrameworkCore.Analyzers/10.0.1": {
+      "sha512": "Ug2lxkiz1bpnxQF/xdswLl5EBA6sAG2ig5nMjmtpQZO0C88ZnvUkbpH2vQq+8ultIRmvp5Ec2jndLGRMPjW0Ew==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/10.0.0",
+      "path": "microsoft.entityframeworkcore.analyzers/10.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "docs/PACKAGE.md",
-        "microsoft.entityframeworkcore.analyzers.10.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.10.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
@@ -3018,10 +3244,10 @@
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/10.0.0": {
-      "sha512": "A3MX1ee7RDxWCUdx/KqP+74fbksz0UIhkVZh56YHvbPkEKsffCXgHU3LGkRDwqR/MrBNWLCWC/IVX79tzM30ZA==",
+    "Microsoft.EntityFrameworkCore.Relational/10.0.1": {
+      "sha512": "8/5kYGwKN6wtc89QqcPTOZDAJSMX8MzKCf5OmYjIfAHWTfsUEpGKYrdtfNk4X36rQ0BiU3n57Y4rbtnerzJN0Q==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/10.0.0",
+      "path": "microsoft.entityframeworkcore.relational/10.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3029,7 +3255,7 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.10.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.10.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
@@ -3156,6 +3382,22 @@
         "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.ExceptionSummarization.xml",
         "microsoft.extensions.diagnostics.exceptionsummarization.10.0.0.nupkg.sha512",
         "microsoft.extensions.diagnostics.exceptionsummarization.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/10.0.1": {
+      "sha512": "6GhBHo94O6RePBlIjiqLFBVJfUQZhZwoug0KOJajjwlpjjMENjhpqrPsSllXOqrtfFvCDYUO/eoCKRtcD5qfGA==",
+      "type": "package",
+      "path": "microsoft.extensions.diagnostics.healthchecks.entityframeworkcore/10.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll",
+        "lib/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.xml",
+        "microsoft.extensions.diagnostics.healthchecks.entityframeworkcore.10.0.1.nupkg.sha512",
+        "microsoft.extensions.diagnostics.healthchecks.entityframeworkcore.nuspec"
       ]
     },
     "Microsoft.Extensions.Http.Diagnostics/10.0.0": {
@@ -3575,100 +3817,160 @@
         "packageIcon.png"
       ]
     },
-    "OpenTelemetry/1.13.1": {
-      "sha512": "rrM2NlZ0Xla2Ar8zzU09n+HoLFq8b+Kjx7vrmR0tdYfWLYWGNcXHOITXUiyaK8RrFEceMEoF45VBsaf4QPmKcg==",
+    "Npgsql/10.0.0": {
+      "sha512": "xZAYhPOU2rUIFpV48xsqhCx9vXs6Y+0jX2LCoSEfDFYMw9jtAOUk3iQsCnDLrFIv9NT3JGMihn7nnuZsPKqJmA==",
       "type": "package",
-      "path": "opentelemetry/1.13.1",
+      "path": "npgsql/10.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net10.0/Npgsql.dll",
+        "lib/net10.0/Npgsql.xml",
+        "lib/net8.0/Npgsql.dll",
+        "lib/net8.0/Npgsql.xml",
+        "lib/net9.0/Npgsql.dll",
+        "lib/net9.0/Npgsql.xml",
+        "npgsql.10.0.0.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.DependencyInjection/10.0.0": {
+      "sha512": "htuxMDQ7nHgadPxoO6XXVvSgYcVierLrhzOoamyUchvC4oHnYdD05zZ0dYsq80DN0vco9t/Vp+ZxYvnfJxbhIg==",
+      "type": "package",
+      "path": "npgsql.dependencyinjection/10.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net8.0/Npgsql.DependencyInjection.dll",
+        "lib/net8.0/Npgsql.DependencyInjection.xml",
+        "npgsql.dependencyinjection.10.0.0.nupkg.sha512",
+        "npgsql.dependencyinjection.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.0": {
+      "sha512": "E2+uSWxSB8LdsUVwPaqRWOcGOP92biry2JEwc0KJMdLJF+aZdczeIdEXVwEyv4nSVMQJH0o8tLhyAMiR6VF0lw==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/10.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "npgsql.entityframeworkcore.postgresql.10.0.0.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.OpenTelemetry/10.0.0": {
+      "sha512": "eftmCZWng874x4iSfQyfF+PpnfA6hloHGQ3EzELVhRyPOEHcMygxSXhx4KI8HKu/Qg8uK1MF5tcwOVhwL7duJw==",
+      "type": "package",
+      "path": "npgsql.opentelemetry/10.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net8.0/Npgsql.OpenTelemetry.dll",
+        "lib/net8.0/Npgsql.OpenTelemetry.xml",
+        "npgsql.opentelemetry.10.0.0.nupkg.sha512",
+        "npgsql.opentelemetry.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "OpenTelemetry/1.14.0": {
+      "sha512": "aiPBAr1+0dPDItH++MQQr5UgMf4xiybruzNlAoYYMYN3UUk+mGRcoKuZy4Z4rhhWUZIpK2Xhe7wUUXSTM32duQ==",
+      "type": "package",
+      "path": "opentelemetry/1.14.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "README.md",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/OpenTelemetry.dll",
+        "lib/net10.0/OpenTelemetry.dll.sigstore.json",
+        "lib/net10.0/OpenTelemetry.xml",
         "lib/net462/OpenTelemetry.dll",
-        "lib/net462/OpenTelemetry.dll-keyless.pem",
-        "lib/net462/OpenTelemetry.dll-keyless.sig",
+        "lib/net462/OpenTelemetry.dll.sigstore.json",
         "lib/net462/OpenTelemetry.xml",
         "lib/net8.0/OpenTelemetry.dll",
-        "lib/net8.0/OpenTelemetry.dll-keyless.pem",
-        "lib/net8.0/OpenTelemetry.dll-keyless.sig",
+        "lib/net8.0/OpenTelemetry.dll.sigstore.json",
         "lib/net8.0/OpenTelemetry.xml",
         "lib/net9.0/OpenTelemetry.dll",
-        "lib/net9.0/OpenTelemetry.dll-keyless.pem",
-        "lib/net9.0/OpenTelemetry.dll-keyless.sig",
+        "lib/net9.0/OpenTelemetry.dll.sigstore.json",
         "lib/net9.0/OpenTelemetry.xml",
         "lib/netstandard2.0/OpenTelemetry.dll",
-        "lib/netstandard2.0/OpenTelemetry.dll-keyless.pem",
-        "lib/netstandard2.0/OpenTelemetry.dll-keyless.sig",
+        "lib/netstandard2.0/OpenTelemetry.dll.sigstore.json",
         "lib/netstandard2.0/OpenTelemetry.xml",
         "lib/netstandard2.1/OpenTelemetry.dll",
-        "lib/netstandard2.1/OpenTelemetry.dll-keyless.pem",
-        "lib/netstandard2.1/OpenTelemetry.dll-keyless.sig",
+        "lib/netstandard2.1/OpenTelemetry.dll.sigstore.json",
         "lib/netstandard2.1/OpenTelemetry.xml",
         "opentelemetry-icon-color.png",
-        "opentelemetry.1.13.1.nupkg.sha512",
+        "opentelemetry.1.14.0.nupkg.sha512",
         "opentelemetry.nuspec"
       ]
     },
-    "OpenTelemetry.Api/1.13.1": {
-      "sha512": "tieglRERo7Rgu8oE8aamnuXCMPEW5fXIqO5ngTMCNk9pOEXanc0SdQ86ZAD1goNiGcjWHn+P3WMZp0FZSJgCoQ==",
+    "OpenTelemetry.Api/1.14.0": {
+      "sha512": "foHci6viUw1f3gUB8qzz3Rk02xZIWMo299X0rxK0MoOWok/3dUVru+KKdY7WIoSHwRGpxGKkmAz9jIk2RFNbsQ==",
       "type": "package",
-      "path": "opentelemetry.api/1.13.1",
+      "path": "opentelemetry.api/1.14.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "README.md",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/OpenTelemetry.Api.dll",
+        "lib/net10.0/OpenTelemetry.Api.dll.sigstore.json",
+        "lib/net10.0/OpenTelemetry.Api.xml",
         "lib/net462/OpenTelemetry.Api.dll",
-        "lib/net462/OpenTelemetry.Api.dll-keyless.pem",
-        "lib/net462/OpenTelemetry.Api.dll-keyless.sig",
+        "lib/net462/OpenTelemetry.Api.dll.sigstore.json",
         "lib/net462/OpenTelemetry.Api.xml",
         "lib/net8.0/OpenTelemetry.Api.dll",
-        "lib/net8.0/OpenTelemetry.Api.dll-keyless.pem",
-        "lib/net8.0/OpenTelemetry.Api.dll-keyless.sig",
+        "lib/net8.0/OpenTelemetry.Api.dll.sigstore.json",
         "lib/net8.0/OpenTelemetry.Api.xml",
         "lib/net9.0/OpenTelemetry.Api.dll",
-        "lib/net9.0/OpenTelemetry.Api.dll-keyless.pem",
-        "lib/net9.0/OpenTelemetry.Api.dll-keyless.sig",
+        "lib/net9.0/OpenTelemetry.Api.dll.sigstore.json",
         "lib/net9.0/OpenTelemetry.Api.xml",
         "lib/netstandard2.0/OpenTelemetry.Api.dll",
-        "lib/netstandard2.0/OpenTelemetry.Api.dll-keyless.pem",
-        "lib/netstandard2.0/OpenTelemetry.Api.dll-keyless.sig",
+        "lib/netstandard2.0/OpenTelemetry.Api.dll.sigstore.json",
         "lib/netstandard2.0/OpenTelemetry.Api.xml",
         "opentelemetry-icon-color.png",
-        "opentelemetry.api.1.13.1.nupkg.sha512",
+        "opentelemetry.api.1.14.0.nupkg.sha512",
         "opentelemetry.api.nuspec"
       ]
     },
-    "OpenTelemetry.Api.ProviderBuilderExtensions/1.13.1": {
-      "sha512": "x8QXMsrIyp+XzDUFQAM+C4upAPNbwaBIPjTWEoonziWAav6weS8OxsMKrE4wz7Zly8ATlsoxk0mWZ+PHO3Wg0w==",
+    "OpenTelemetry.Api.ProviderBuilderExtensions/1.14.0": {
+      "sha512": "i/lxOM92v+zU5I0rGl5tXAGz6EJtxk2MvzZ0VN6F6L5pMqT6s6RCXnGWXg6fW+vtZJsllBlQaf/VLPTzgefJpg==",
       "type": "package",
-      "path": "opentelemetry.api.providerbuilderextensions/1.13.1",
+      "path": "opentelemetry.api.providerbuilderextensions/1.14.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "README.md",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
+        "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll.sigstore.json",
+        "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.xml",
         "lib/net462/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
-        "lib/net462/OpenTelemetry.Api.ProviderBuilderExtensions.dll-keyless.pem",
-        "lib/net462/OpenTelemetry.Api.ProviderBuilderExtensions.dll-keyless.sig",
+        "lib/net462/OpenTelemetry.Api.ProviderBuilderExtensions.dll.sigstore.json",
         "lib/net462/OpenTelemetry.Api.ProviderBuilderExtensions.xml",
         "lib/net8.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
-        "lib/net8.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll-keyless.pem",
-        "lib/net8.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll-keyless.sig",
+        "lib/net8.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll.sigstore.json",
         "lib/net8.0/OpenTelemetry.Api.ProviderBuilderExtensions.xml",
         "lib/net9.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
-        "lib/net9.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll-keyless.pem",
-        "lib/net9.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll-keyless.sig",
+        "lib/net9.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll.sigstore.json",
         "lib/net9.0/OpenTelemetry.Api.ProviderBuilderExtensions.xml",
         "lib/netstandard2.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
-        "lib/netstandard2.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll-keyless.pem",
-        "lib/netstandard2.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll-keyless.sig",
+        "lib/netstandard2.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll.sigstore.json",
         "lib/netstandard2.0/OpenTelemetry.Api.ProviderBuilderExtensions.xml",
         "opentelemetry-icon-color.png",
-        "opentelemetry.api.providerbuilderextensions.1.13.1.nupkg.sha512",
+        "opentelemetry.api.providerbuilderextensions.1.14.0.nupkg.sha512",
         "opentelemetry.api.providerbuilderextensions.nuspec"
       ]
     },
@@ -3707,34 +4009,33 @@
         "opentelemetry.exporter.opentelemetryprotocol.nuspec"
       ]
     },
-    "OpenTelemetry.Extensions.Hosting/1.13.1": {
-      "sha512": "gULeizu0WH4YxnVltLO/Ml12aGxpk2Qrz3dm3MUgohQ/Y8HsGDzuAhawEP1eas6dMO61PJta1dy6KqNbVIJQyw==",
+    "OpenTelemetry.Extensions.Hosting/1.14.0": {
+      "sha512": "ZAxkCIa3Q3YWZ1sGrolXfkhPqn2PFSz2Cel74em/fATZgY5ixlw6MQp2icmqKCz4C7M1W2G0b92K3rX8mOtFRg==",
       "type": "package",
-      "path": "opentelemetry.extensions.hosting/1.13.1",
+      "path": "opentelemetry.extensions.hosting/1.14.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "README.md",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/OpenTelemetry.Extensions.Hosting.dll",
+        "lib/net10.0/OpenTelemetry.Extensions.Hosting.dll.sigstore.json",
+        "lib/net10.0/OpenTelemetry.Extensions.Hosting.xml",
         "lib/net462/OpenTelemetry.Extensions.Hosting.dll",
-        "lib/net462/OpenTelemetry.Extensions.Hosting.dll-keyless.pem",
-        "lib/net462/OpenTelemetry.Extensions.Hosting.dll-keyless.sig",
+        "lib/net462/OpenTelemetry.Extensions.Hosting.dll.sigstore.json",
         "lib/net462/OpenTelemetry.Extensions.Hosting.xml",
         "lib/net8.0/OpenTelemetry.Extensions.Hosting.dll",
-        "lib/net8.0/OpenTelemetry.Extensions.Hosting.dll-keyless.pem",
-        "lib/net8.0/OpenTelemetry.Extensions.Hosting.dll-keyless.sig",
+        "lib/net8.0/OpenTelemetry.Extensions.Hosting.dll.sigstore.json",
         "lib/net8.0/OpenTelemetry.Extensions.Hosting.xml",
         "lib/net9.0/OpenTelemetry.Extensions.Hosting.dll",
-        "lib/net9.0/OpenTelemetry.Extensions.Hosting.dll-keyless.pem",
-        "lib/net9.0/OpenTelemetry.Extensions.Hosting.dll-keyless.sig",
+        "lib/net9.0/OpenTelemetry.Extensions.Hosting.dll.sigstore.json",
         "lib/net9.0/OpenTelemetry.Extensions.Hosting.xml",
         "lib/netstandard2.0/OpenTelemetry.Extensions.Hosting.dll",
-        "lib/netstandard2.0/OpenTelemetry.Extensions.Hosting.dll-keyless.pem",
-        "lib/netstandard2.0/OpenTelemetry.Extensions.Hosting.dll-keyless.sig",
+        "lib/netstandard2.0/OpenTelemetry.Extensions.Hosting.dll.sigstore.json",
         "lib/netstandard2.0/OpenTelemetry.Extensions.Hosting.xml",
         "opentelemetry-icon-color.png",
-        "opentelemetry.extensions.hosting.1.13.1.nupkg.sha512",
+        "opentelemetry.extensions.hosting.1.14.0.nupkg.sha512",
         "opentelemetry.extensions.hosting.nuspec"
       ]
     },
@@ -4451,6 +4752,16 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Hiberus.Industria.Templates.Aspire.React.Server.Application/1.0.0": {
+      "type": "project",
+      "path": "../../Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Application/Hiberus.Industria.Templates.Aspire.React.Server.Application.csproj",
+      "msbuildProject": "../../Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Application/Hiberus.Industria.Templates.Aspire.React.Server.Application.csproj"
+    },
+    "Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../../Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.csproj",
+      "msbuildProject": "../../Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.csproj"
+    },
     "Hiberus.Industria.Templates.Aspire.React.ServiceDefaults/1.0.0": {
       "type": "project",
       "path": "../../Libraries/Hiberus.Industria.Templates.Aspire.React.ServiceDefaults/Hiberus.Industria.Templates.Aspire.React.ServiceDefaults.csproj",
@@ -4462,6 +4773,8 @@
       "AsyncAwaitBestPractices >= 10.0.0",
       "CSharpGuidelinesAnalyzer >= 3.8.5",
       "ErrorProne.NET.CoreAnalyzers >= 0.1.2",
+      "Hiberus.Industria.Templates.Aspire.React.Server.Application >= 1.0.0",
+      "Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure >= 1.0.0",
       "Hiberus.Industria.Templates.Aspire.React.ServiceDefaults >= 1.0.0",
       "MediatR >= 12.5.0",
       "Meziantou.Analyzer >= 2.0.252",
@@ -4511,6 +4824,12 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
+            "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Libraries\\Hiberus.Industria.Templates.Aspire.React.Server.Application\\Hiberus.Industria.Templates.Aspire.React.Server.Application.csproj": {
+              "projectPath": "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Libraries\\Hiberus.Industria.Templates.Aspire.React.Server.Application\\Hiberus.Industria.Templates.Aspire.React.Server.Application.csproj"
+            },
+            "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Libraries\\Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure\\Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Libraries\\Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure\\Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.csproj"
+            },
             "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Libraries\\Hiberus.Industria.Templates.Aspire.React.ServiceDefaults\\Hiberus.Industria.Templates.Aspire.React.ServiceDefaults.csproj": {
               "projectPath": "C:\\Users\\jblascoi\\dev-local\\hiberus-industry-project-templates\\templates\\Hiberus.Industria.Templates.Aspire.React\\src\\Libraries\\Hiberus.Industria.Templates.Aspire.React.ServiceDefaults\\Hiberus.Industria.Templates.Aspire.React.ServiceDefaults.csproj"
             }

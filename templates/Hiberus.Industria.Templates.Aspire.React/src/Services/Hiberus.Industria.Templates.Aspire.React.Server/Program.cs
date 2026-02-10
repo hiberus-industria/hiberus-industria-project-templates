@@ -1,3 +1,5 @@
+using Hiberus.Industria.Templates.Aspire.React.Server.Application;
+using Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure;
 using Hiberus.Industria.Templates.Aspire.React.ServiceDefaults;
 
 namespace Hiberus.Industria.Templates.Aspire.React.Server;
@@ -24,6 +26,14 @@ public static class Program
         builder.Services.AddOpenApi();
         builder.Services.AddControllers();
 
+        // Add application services
+        builder.Services.AddApplicationMediatRFromAssemblies(
+            typeof(Application.ServiceCollectionExtensions).Assembly
+        );
+
+        // Add infrastructure services
+        builder.Services.AddPersistence(builder.Configuration).AddRepositories();
+
         WebApplication app = builder.Build();
 
         app.MapDefaultEndpoints();
@@ -33,39 +43,6 @@ public static class Program
         app.UseAuthentication();
         app.UseAuthorization();
         app.MapControllers();
-
-        string[] summaries =
-        [
-            "Freezing",
-            "Bracing",
-            "Chilly",
-            "Cool",
-            "Mild",
-            "Warm",
-            "Balmy",
-            "Hot",
-            "Sweltering",
-            "Scorching",
-        ];
-        RouteGroupBuilder api = app.MapGroup("/api");
-        api.MapGet(
-                "weatherforecast",
-                () =>
-                {
-                    return Enumerable
-                        .Range(1, 5)
-                        .Select(index =>
-                        {
-                            DateTime date = DateTime.Now.AddDays(index);
-                            var forecastDate = DateOnly.FromDateTime(date);
-                            int temperature = Random.Shared.Next(-20, 55);
-                            string summary = summaries[Random.Shared.Next(summaries.Length)];
-                            return new WeatherForecast(forecastDate, temperature, summary);
-                        })
-                        .ToArray();
-                }
-            )
-            .WithName("GetWeatherForecast");
 
         await app.RunAsync().ConfigureAwait(false);
     }

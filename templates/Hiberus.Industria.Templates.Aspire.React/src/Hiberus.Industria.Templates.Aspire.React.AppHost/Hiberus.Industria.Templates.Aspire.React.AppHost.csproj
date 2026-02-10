@@ -14,5 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="../Services/Hiberus.Industria.Templates.Aspire.React.Server/Hiberus.Industria.Templates.Aspire.React.Server.csproj" />
+    <ProjectReference Include="../Services/Hiberus.Industria.Templates.Aspire.React.Server.MigrationService/Hiberus.Industria.Templates.Aspire.React.Server.MigrationService.csproj" />
   </ItemGroup>
 </Project>

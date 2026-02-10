@@ -11,5 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Hiberus.Industria.Templates.Aspire.React.ServiceDefaults\Hiberus.Industria.Templates.Aspire.React.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\..\Libraries\Hiberus.Industria.Templates.Aspire.React.Server.Application\Hiberus.Industria.Templates.Aspire.React.Server.Application.csproj" />
+    <ProjectReference Include="..\..\Libraries\Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure\Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

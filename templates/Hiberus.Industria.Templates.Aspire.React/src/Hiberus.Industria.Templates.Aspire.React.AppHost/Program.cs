@@ -49,6 +49,13 @@ internal static class Program
             .WaitFor(mainDatabase)
             .WaitFor(keycloak);
 
+        builder
+            .AddProject<Projects.Hiberus_Industria_Templates_Aspire_React_Server_MigrationService>(
+                "server-migration-service"
+            )
+            .WithReference(mainDatabase)
+            .WaitFor(mainDatabase);
+
         // Frontend project
         builder
             .AddViteApp("client", "../Services/Hiberus.Industria.Templates.Aspire.React.Client")
