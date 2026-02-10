@@ -1,3 +1,5 @@
+using Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure;
+using Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.Persistence;
 using Hiberus.Industria.Templates.Aspire.React.ServiceDefaults;
 
 namespace Hiberus.Industria.Templates.Aspire.React.Server.MigrationService;
@@ -21,6 +23,11 @@ internal static class Program
 
         // Add services to the container.
         builder.Services.AddHttpContextAccessor();
+
+        // Add infrastructure services
+        builder.Services.AddPersistence(builder.Configuration);
+
+        builder.EnrichNpgsqlDbContext<ApplicationDbContext>();
 
         // Register the Worker class as a hosted background service
         builder.Services.AddHostedService<Worker>();
