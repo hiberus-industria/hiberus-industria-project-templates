@@ -60,7 +60,9 @@ internal static class Program
         builder
             .AddViteApp("client", "../Services/Hiberus.Industria.Templates.Aspire.React.Client")
             .WithReference(server)
-            .WaitFor(server);
+            .WaitFor(server)
+            .WithEndpoint("http", endpoint => endpoint.Port = 3000)
+            .WithYarn(true);
 
         // Build and run the distributed application
         await builder.Build().RunAsync().ConfigureAwait(false);
