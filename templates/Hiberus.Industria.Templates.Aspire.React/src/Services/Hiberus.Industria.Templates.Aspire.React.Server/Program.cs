@@ -64,6 +64,7 @@ public static class Program
         app.UseAuthentication();
         app.UseAuthorization();
         app.MapControllers();
+        app.MapOpenApi();
 
         await app.RunAsync().ConfigureAwait(false);
     }
