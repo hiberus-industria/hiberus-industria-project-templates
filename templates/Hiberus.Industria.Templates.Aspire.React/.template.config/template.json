@@ -17,7 +17,25 @@
             "valueSource": "name",
             "valueTransform": "kebabCase",
             "replaces": "templates-aspire-react",
-            "description": "Nombre del proyecto en kebab-case para recursos docker"
+            "description": "Project name in kebab-case for docker resources"
         }
-    }
+    },
+    "sources": [
+        {
+            "source": "./",
+            "exclude": ["**/[Bb]in/**", "**/[Oo]bj/**", ".template.config/**"]
+        },
+        {
+            "source": "../../",
+            "target": "./",
+            "include": [
+                ".editorconfig",
+                ".gitattributes",
+                ".gitignore",
+                ".dockerignore",
+                ".github/**",
+                ".vscode/**"
+            ]
+        }
+    ]
 }
