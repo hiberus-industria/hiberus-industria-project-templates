@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/shared/components/layout/app-sidebar";
+import { AppSidebar } from "@/shared/components/app-sidebar";
 import TanstackBreadcrumb from "@/shared/components/tanstack-breadcrumb";
 import { ThemeProvider } from "@/shared/components/theme-provider";
 import { Button } from "@/shared/components/ui/button";
