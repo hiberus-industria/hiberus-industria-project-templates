@@ -2,8 +2,13 @@ using Duende.AccessTokenManagement;
 using Hiberus.Industria.Templates.Aspire.React.Server.Application.Common;
 using Hiberus.Industria.Templates.Aspire.React.Server.Application.Common.Configurations;
 using Hiberus.Industria.Templates.Aspire.React.Server.Application.Common.Interfaces;
+using Hiberus.Industria.Templates.Aspire.React.Server.Application.Identity;
+using Hiberus.Industria.Templates.Aspire.React.Server.Domain.Common.Interfaces;
+using Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.Common;
+using Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.Identity;
 using Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.Persistence;
 using Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.Persistence.Repositories;
+using Keycloak.AuthServices.Authorization;
 using Keycloak.AuthServices.Sdk;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +22,20 @@ namespace Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure;
 /// </summary>
 public static class ServiceCollectionExtensions
 {
+    /// <summary>
+    /// Adds core infrastructure services to the service collection.
+    /// </summary>
+    /// <param name="services">The service collection to configure.</param>
+    /// <returns>The configured service collection.</returns>
+    public static IServiceCollection AddInfrastructureCore(this IServiceCollection services)
+    {
+        services.AddDistributedMemoryCache();
+        services.AddScoped<IClaimsAccessor, ClaimsAccessor>();
+        services.AddSingleton<ISystemClock, SystemClock>();
+
+        return services;
+    }
+
     /// <summary>
     /// Registers Entity Framework Core with PostgreSQL for the application database context.
     /// </summary>
@@ -104,6 +123,35 @@ public static class ServiceCollectionExtensions
                         ValidIssuers = oAuthOptions.ValidIssuers,
                     };
                 }
+            );
+
+        return services;
+    }
+
+    /// <summary>
+    /// Adds custom authorization policies to the service collection.
+    /// </summary>
+    /// <param name="services">The service collection to configure.</param>
+    /// <returns>The configured service collection.</returns>
+    public static IServiceCollection AddCustomAuthorization(this IServiceCollection services)
+    {
+        services
+            .AddAuthorization()
+            .AddKeycloakAuthorization(options =>
+                options.EnableRolesMapping = RolesClaimTransformationSource.Realm
+            )
+            .AddAuthorizationBuilder()
+            .AddPolicy(
+                PolicyNames.HasOperatorRole,
+                policy => policy.RequireRealmRoles(RoleNames.Operator)
+            )
+            .AddPolicy(
+                PolicyNames.HasAdministratorRole,
+                policy => policy.RequireRealmRoles(RoleNames.Administrator)
+            )
+            .AddPolicy(
+                PolicyNames.HasOperatorOrAdminRole,
+                policy => policy.RequireRealmRoles(RoleNames.All)
             );
 
         return services;

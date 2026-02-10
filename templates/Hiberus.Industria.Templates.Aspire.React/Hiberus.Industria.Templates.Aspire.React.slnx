@@ -4,6 +4,7 @@
     </Folder>
     <Folder Name="/src/Libraries/">
         <Project Path="src/Libraries/Hiberus.Industria.Templates.Aspire.React.ServiceDefaults/Hiberus.Industria.Templates.Aspire.React.ServiceDefaults.csproj" />
+        <Project Path="src/Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Domain/Hiberus.Industria.Templates.Aspire.React.Server.Domain.csproj" />
         <Project Path="src/Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Application/Hiberus.Industria.Templates.Aspire.React.Server.Application.csproj" />
         <Project Path="src/Libraries/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure/Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure.csproj" />
     </Folder>

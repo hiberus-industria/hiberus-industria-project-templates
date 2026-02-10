@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../Hiberus.Industria.Templates.Aspire.React.Server.Domain/Hiberus.Industria.Templates.Aspire.React.Server.Domain.csproj" />
     <ProjectReference Include="../Hiberus.Industria.Templates.Aspire.React.Server.Application/Hiberus.Industria.Templates.Aspire.React.Server.Application.csproj" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 using Hiberus.Industria.Templates.Aspire.React.Server.Application;
+using Hiberus.Industria.Templates.Aspire.React.Server.Application.Common.Configurations;
 using Hiberus.Industria.Templates.Aspire.React.Server.Infrastructure;
 using Hiberus.Industria.Templates.Aspire.React.ServiceDefaults;
 
@@ -20,6 +21,18 @@ public static class Program
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
         builder.AddServiceDefaults();
 
+        // Configure - OAuth options
+        IConfigurationSection oAuthConfig = builder.Configuration.GetSection(
+            "Authentication:OAuth"
+        );
+        builder.Services.Configure<OAuthOptions>(oAuthConfig);
+
+        // Configure - Keycloak admin client options
+        IConfigurationSection keycloakAdminConfig = builder.Configuration.GetSection(
+            "Authentication:KeycloakClient"
+        );
+        builder.Services.Configure<KeycloakClientOptions>(keycloakAdminConfig);
+
         // Add services to the container.
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddProblemDetails();
@@ -27,12 +40,20 @@ public static class Program
         builder.Services.AddControllers();
 
         // Add application services
-        builder.Services.AddApplicationMediatRFromAssemblies(
-            typeof(Application.ServiceCollectionExtensions).Assembly
-        );
+        builder
+            .Services.AddApplicationMediatRCore()
+            .AddApplicationMediatRFromAssemblies(
+                typeof(Application.ServiceCollectionExtensions).Assembly
+            );
 
         // Add infrastructure services
-        builder.Services.AddPersistence(builder.Configuration).AddRepositories();
+        builder
+            .Services.AddInfrastructureCore()
+            .AddPersistence(builder.Configuration)
+            .AddRepositories()
+            .AddJwtBearerAuthentication(builder.Configuration)
+            .AddCustomAuthorization()
+            .AddKeycloakAdminClient(builder.Configuration);
 
         WebApplication app = builder.Build();
 

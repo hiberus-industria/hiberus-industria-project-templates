@@ -1,6 +1,6 @@
 {
     "profiles": {
-        "Volkswagen.Picking.Server.MigrationService": {
+        "Hiberus.Industria.Templates.Aspire.React.Server.MigrationService": {
             "commandName": "Project",
             "environmentVariables": {
                 "DOTNET_ENVIRONMENT": "Development"

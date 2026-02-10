@@ -25,7 +25,7 @@ internal static class Program
         builder.Services.AddHttpContextAccessor();
 
         // Add infrastructure services
-        builder.Services.AddPersistence(builder.Configuration);
+        builder.Services.AddInfrastructureCore().AddPersistence(builder.Configuration);
 
         builder.EnrichNpgsqlDbContext<ApplicationDbContext>();
 

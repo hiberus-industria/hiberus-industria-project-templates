@@ -1,4 +1,6 @@
 using System.Reflection;
+using Hiberus.Industria.Templates.Aspire.React.Server.Application.Common.Behaviors;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Hiberus.Industria.Templates.Aspire.React.Server.Application;
@@ -8,6 +10,19 @@ namespace Hiberus.Industria.Templates.Aspire.React.Server.Application;
 /// </summary>
 public static class ServiceCollectionExtensions
 {
+    /// <summary>
+    /// Adds MediatR core services to the application.
+    /// </summary>
+    /// <param name="services">The service collection to configure.</param>
+    /// <returns>The configured service collection.</returns>
+    public static IServiceCollection AddApplicationMediatRCore(this IServiceCollection services)
+    {
+        // Register pipeline behaviors
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(InfrastructureErrorBehavior<,>));
+        return services;
+    }
+
     /// <summary>
     /// Adds MediatR services from the specified assemblies.
     /// </summary>
