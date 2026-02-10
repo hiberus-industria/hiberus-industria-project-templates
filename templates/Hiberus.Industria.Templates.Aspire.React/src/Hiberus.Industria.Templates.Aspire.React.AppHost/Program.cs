@@ -2,7 +2,7 @@ namespace Hiberus.Industria.Templates.Aspire.React.AppHost;
 
 /// <summary>
 /// Entry point for the distributed Aspire application.
-/// Sets up infrastructure and projects for Volkswagen Picking.
+/// Sets up infrastructure and projects for Templates Aspire React.
 /// </summary>
 internal static class Program
 {
@@ -15,8 +15,26 @@ internal static class Program
     {
         IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(args);
 
-        IResourceBuilder<ProjectResource> server =
-            builder.AddProject<Projects.Hiberus_Industria_Templates_Aspire_React_Server>("server");
+        // External dependencies - PostgreSQL
+        IResourceBuilder<PostgresServerResource> database = builder
+            .AddPostgres("database")
+            .WithDataVolume("templates-aspire-react-data")
+            .WithPgAdmin(options =>
+            {
+                options.WithHostPort(5050);
+                options.WithLifetime(ContainerLifetime.Persistent);
+                options.WithEnvironment("PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED", "False");
+            })
+            .WithLifetime(ContainerLifetime.Persistent);
+
+        IResourceBuilder<PostgresDatabaseResource> mainDatabase = database.AddDatabase(
+            "templates-aspire-react-database"
+        );
+
+        IResourceBuilder<ProjectResource> server = builder
+            .AddProject<Projects.Hiberus_Industria_Templates_Aspire_React_Server>("server")
+            .WithReference(mainDatabase)
+            .WaitFor(mainDatabase);
 
         builder
             .AddViteApp("client", "../Services/Hiberus.Industria.Templates.Aspire.React.Client")

@@ -10,5 +10,14 @@
     "tags": {
         "language": "C#",
         "type": "project"
+    },
+    "symbols": {
+        "appSlug": {
+            "type": "derived",
+            "valueSource": "name",
+            "valueTransform": "kebabCase",
+            "replaces": "templates-aspire-react",
+            "description": "Nombre del proyecto en kebab-case para recursos docker"
+        }
     }
 }
