@@ -1,5 +1,4 @@
 import * as React from "react";
-import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 
 import {
     SidebarGroup,
@@ -8,6 +7,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/shared/components/ui/sidebar";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 import { Link } from "@tanstack/react-router";
 
 export type NavSecondaryItem = {
@@ -29,19 +29,15 @@ export function NavSecondary({
                 <SidebarMenu>
                     {items.map((item) => (
                         <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton size="sm">
-                                <Link
-                                    to={item.url}
-                                    target={
-                                        item.openInNewTab ? "_blank" : undefined
-                                    }
-                                >
-                                    <HugeiconsIcon
-                                        icon={item.icon}
-                                        strokeWidth={2}
-                                    />
-                                    <span>{item.title}</span>
-                                </Link>
+                            <SidebarMenuButton
+                                size="sm"
+                                render={<Link to={item.url} />}
+                            >
+                                <HugeiconsIcon
+                                    icon={item.icon}
+                                    strokeWidth={2}
+                                />
+                                <span>{item.title}</span>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     ))}

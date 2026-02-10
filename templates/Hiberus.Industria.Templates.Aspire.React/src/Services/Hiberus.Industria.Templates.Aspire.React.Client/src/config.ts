@@ -1,5 +1,16 @@
 import { routeTree } from "./routeTree.gen";
+import { client } from "./client/client.gen";
 import { createRouter } from "@tanstack/react-router";
+import { QueryClient } from "@tanstack/react-query";
+
+// Configuration for API client
+export const queryClient = new QueryClient();
+
+export const setupApiClient = () => {
+    client.setConfig({
+        baseUrl: "/api",
+    });
+};
 
 // Configuration for routing
 export const router = createRouter({

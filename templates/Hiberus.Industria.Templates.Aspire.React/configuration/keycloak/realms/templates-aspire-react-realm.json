@@ -67,22 +67,10 @@
                 "attributes": {}
             },
             {
-                "id": "c24449b6-fcd2-4ead-a53b-f55834977473",
-                "name": "operator",
-                "description": "",
-                "composite": false,
-                "clientRole": false,
-                "containerId": "e363c0f8-5bb7-4c7d-bf5a-a2aa0aefc297",
-                "attributes": {}
-            },
-            {
                 "id": "c11a5d86-1ac0-4ba7-9772-77227bac2158",
                 "name": "administrator",
                 "description": "",
-                "composite": true,
-                "composites": {
-                    "realm": ["operator"]
-                },
+                "composite": false,
                 "clientRole": false,
                 "containerId": "e363c0f8-5bb7-4c7d-bf5a-a2aa0aefc297",
                 "attributes": {}
@@ -353,16 +341,6 @@
             "subGroups": [],
             "attributes": {},
             "realmRoles": ["administrator"],
-            "clientRoles": {}
-        },
-        {
-            "id": "0e82c406-a61e-40c0-b881-0ad8c8e35872",
-            "name": "operators",
-            "description": "",
-            "path": "/operators",
-            "subGroups": [],
-            "attributes": {},
-            "realmRoles": ["operator"],
             "clientRoles": {}
         }
     ],

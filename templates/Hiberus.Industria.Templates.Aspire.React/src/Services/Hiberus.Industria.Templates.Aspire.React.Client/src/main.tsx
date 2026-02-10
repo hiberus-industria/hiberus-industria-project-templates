@@ -2,11 +2,14 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 
 import "./index.css";
-import { router } from "./config.ts";
+import { queryClient, router, setupApiClient } from "./config.ts";
 import { AuthProvider } from "react-oidc-context";
 import { onSigninCallback, userManager } from "./features/auth/oidc.ts";
 import { RouterProvider } from "@tanstack/react-router";
 import reportWebVitals from "./report-web-vitals.ts";
+import { QueryClientProvider } from "@tanstack/react-query";
+
+setupApiClient();
 
 const rootElement = document.getElementById("app");
 if (rootElement && !rootElement.innerHTML) {
@@ -17,7 +20,9 @@ if (rootElement && !rootElement.innerHTML) {
                 userManager={userManager}
                 onSigninCallback={onSigninCallback}
             >
-                <RouterProvider router={router} />
+                <QueryClientProvider client={queryClient}>
+                    <RouterProvider router={router} />
+                </QueryClientProvider>
             </AuthProvider>
         </StrictMode>,
     );

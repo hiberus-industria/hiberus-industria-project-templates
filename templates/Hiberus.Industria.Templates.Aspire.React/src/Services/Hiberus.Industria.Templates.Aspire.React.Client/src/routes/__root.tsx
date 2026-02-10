@@ -1,4 +1,5 @@
-import { AppSidebar } from "@/shared/components/app-sidebar";
+import { AppSidebar } from "@/shared/components/layout/app-sidebar";
+import ProtectedApp from "@/shared/components/protected-app";
 import TanstackBreadcrumb from "@/shared/components/tanstack-breadcrumb";
 import { ThemeProvider } from "@/shared/components/theme-provider";
 import { Button } from "@/shared/components/ui/button";
@@ -21,7 +22,7 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 export const Route = createRootRoute({
     component: () => (
-        <>
+        <ProtectedApp>
             <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
                 <SidebarProvider>
                     <AppSidebar />
@@ -44,7 +45,7 @@ export const Route = createRootRoute({
 
             <Toaster />
             <TanStackRouterDevtools position="bottom-right" />
-        </>
+        </ProtectedApp>
     ),
     notFoundComponent: () => (
         <main className="flex flex-1 h-screen w-full items-center justify-center p-4">

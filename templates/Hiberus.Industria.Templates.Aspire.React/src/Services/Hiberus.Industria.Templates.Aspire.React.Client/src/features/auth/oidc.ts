@@ -2,6 +2,9 @@ import { authority, clientId } from "@/global-variables";
 import { UserManager, WebStorageStateStore } from "oidc-client-ts";
 
 // Configuration for OIDC authentication
+console.log(authority());
+console.log(clientId());
+
 export const userManager = new UserManager({
     authority: authority(),
     client_id: clientId(),

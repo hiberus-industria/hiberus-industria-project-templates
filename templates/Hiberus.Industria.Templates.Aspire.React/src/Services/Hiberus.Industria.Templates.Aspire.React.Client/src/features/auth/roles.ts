@@ -1,4 +1,4 @@
-export type Role = "administrator" | "operator";
+export type Role = "administrator";
 
 export const hasAll = (roles: string[], required: Role[]) =>
     required.every((r) => roles.includes(r));

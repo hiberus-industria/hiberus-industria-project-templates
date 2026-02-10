@@ -7,7 +7,8 @@
         "dev": "vite",
         "build": "tsc -b && vite build",
         "lint": "eslint .",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "gen:client": "openapi-ts"
     },
     "dependencies": {
         "@base-ui/react": "^1.1.0",
@@ -15,6 +16,7 @@
         "@hugeicons/core-free-icons": "^3.1.1",
         "@hugeicons/react": "^1.1.5",
         "@tailwindcss/vite": "^4.1.17",
+        "@tanstack/react-query": "^5.90.20",
         "@tanstack/react-router": "^1.159.5",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
@@ -31,6 +33,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.39.1",
+        "@hey-api/openapi-ts": "^0.90.8",
         "@tanstack/react-router-devtools": "^1.159.5",
         "@tanstack/router-plugin": "^1.159.5",
         "@types/node": "^24.10.1",
