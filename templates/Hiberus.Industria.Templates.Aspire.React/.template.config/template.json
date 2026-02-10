@@ -14,7 +14,13 @@
     "sources": [
         {
             "source": "./",
-            "exclude": ["**/[Bb]in/**", "**/[Oo]bj/**", ".template.config/**"]
+            "exclude": [
+                "**/[Bb]in/**",
+                "**/[Oo]bj/**",
+                "**/node_modules/**",
+                "**/.yarn/install-state.gz",
+                ".template.config/**"
+            ]
         },
         {
             "source": "../../",
