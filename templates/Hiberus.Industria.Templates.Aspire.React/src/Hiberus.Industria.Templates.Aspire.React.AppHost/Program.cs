@@ -18,7 +18,7 @@ internal static class Program
         // External dependencies - PostgreSQL
         IResourceBuilder<PostgresServerResource> database = builder
             .AddPostgres("database")
-            .WithDataVolume("templates-aspire-react-data")
+            .WithDataVolume("templates-aspire-react-database-data")
             .WithPgAdmin(options =>
             {
                 options.WithHostPort(5050);
@@ -31,11 +31,25 @@ internal static class Program
             "templates-aspire-react-database"
         );
 
+        // External dependencies - Keycloak
+        IResourceBuilder<KeycloakResource> keycloak = builder
+            .AddKeycloak("keycloak", 8080)
+            .WithDataVolume("templates-aspire-react-keycloak-data")
+            .WithRealmImport("../../configuration/keycloak/realms/master.json")
+            .WithRealmImport(
+                "../../configuration/keycloak/realms/templates-aspire-react-realm.json"
+            )
+            .WithLifetime(ContainerLifetime.Persistent);
+
+        // Backend project
         IResourceBuilder<ProjectResource> server = builder
             .AddProject<Projects.Hiberus_Industria_Templates_Aspire_React_Server>("server")
             .WithReference(mainDatabase)
-            .WaitFor(mainDatabase);
+            .WithReference(keycloak)
+            .WaitFor(mainDatabase)
+            .WaitFor(keycloak);
 
+        // Frontend project
         builder
             .AddViteApp("client", "../Services/Hiberus.Industria.Templates.Aspire.React.Client")
             .WithReference(server)

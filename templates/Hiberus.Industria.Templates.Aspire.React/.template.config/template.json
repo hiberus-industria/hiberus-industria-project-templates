@@ -11,15 +11,6 @@
         "language": "C#",
         "type": "project"
     },
-    "symbols": {
-        "appSlug": {
-            "type": "derived",
-            "valueSource": "name",
-            "valueTransform": "kebabCase",
-            "replaces": "templates-aspire-react",
-            "description": "Project name in kebab-case for docker resources"
-        }
-    },
     "sources": [
         {
             "source": "./",
@@ -37,5 +28,43 @@
                 ".vscode/**"
             ]
         }
-    ]
+    ],
+    "symbols": {
+        "appSlug": {
+            "type": "derived",
+            "valueSource": "name",
+            "valueTransform": "kebabCase",
+            "replaces": "templates-aspire-react",
+            "fileRename": "templates-aspire-react",
+            "description": "Project name in kebab-case for use in external services."
+        },
+        "appDisplayName": {
+            "type": "derived",
+            "valueSource": "name",
+            "valueTransform": "displayName",
+            "replaces": "Templates Aspire React",
+            "description": "Project name in PascalCase for use in external services."
+        }
+    },
+    "forms": {
+        "dotToSpace": {
+            "identifier": "replace",
+            "pattern": "\\.",
+            "replacement": " "
+        },
+        "dashToSpace": {
+            "identifier": "replace",
+            "pattern": "-",
+            "replacement": " "
+        },
+        "camelToSpace": {
+            "identifier": "replace",
+            "pattern": "(?<=[a-z0-9])([A-Z])",
+            "replacement": " $1"
+        },
+        "displayName": {
+            "identifier": "chain",
+            "steps": ["dotToSpace", "dashToSpace", "camelToSpace", "titleCase"]
+        }
+    }
 }
