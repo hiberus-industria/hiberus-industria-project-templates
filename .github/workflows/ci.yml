@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - "**"
+  push:
+    branches:
+      - develop
+
+jobs:
+  validate-templates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Make validation script executable
+        run: chmod +x ./scripts/validate-template-config.sh
+
+      - name: Validate template configurations
+        run: ./scripts/validate-template-config.sh
+
+  build-and-test:
+    runs-on: ubuntu-latest
+    needs: validate-templates
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history for GitVersion
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore .NET tools
+        run: dotnet tool restore
+
+      - name: Run GitVersion
+        id: gitversion
+        run: |
+          dotnet gitversion
+          SEMVER=$(dotnet gitversion -showvariable SemVer)
+          echo "semver=$SEMVER" >> $GITHUB_OUTPUT
+          echo "Package version: $SEMVER"
+
+      - name: Pack template
+        run: dotnet pack -p:PackageVersion=${{ steps.gitversion.outputs.semver }} -o ./artifacts
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: ./artifacts/*.nupkg
+          retention-days: 7
+
+      - name: Make test script executable
+        run: chmod +x ./scripts/test-templates.sh
+
+      - name: Test templates
+        run: ./scripts/test-templates.sh
