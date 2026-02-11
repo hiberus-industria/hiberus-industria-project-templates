@@ -6,10 +6,14 @@
     <title>Hiberus Industria Project Templates</title>
     <authors>Hiberus Industria</authors>
     <license type="expression">MIT</license>
+    <!-- Uncomment when icon.png is provided (see icon.png.PLACEHOLDER.txt for requirements) -->
+    <!-- <icon>icon.png</icon> -->
     <projectUrl>https://github.com/hiberus-industria/hiberus-industria-project-templates</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A collection of .NET Aspire project templates for enterprise applications. Includes templates for React + ASP.NET Core with Clean Architecture, Entity Framework Core, and Keycloak authentication.</description>
-    <tags>dotnet-new templates aspire react angular clean-architecture keycloak</tags>
+    <description>Production-ready .NET project templates for enterprise applications. Build modern distributed applications with .NET Aspire, Clean Architecture, React/Angular frontends, ASP.NET Core APIs, Entity Framework Core, and Keycloak authentication. Includes automated CI/CD workflows and comprehensive documentation.</description>
+    <summary>Enterprise .NET Aspire templates with Clean Architecture, modern frontends, and complete DevOps automation.</summary>
+    <copyright>Copyright (c) 2026 Hiberus Tecnología S.L.U.</copyright>
+    <tags>dotnet-new templates aspire react angular clean-architecture keycloak postgresql entityframework webapi typescript vite opentelemetry</tags>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
@@ -17,5 +21,10 @@
   </metadata>
   <files>
     <file src="templates\**\*" target="content" exclude="templates\**\bin\**;templates\**\obj\**;templates\**\node_modules\**;templates\**\.yarn\**;templates\**\*.log" />
+    <!-- Uncomment when icon.png is provided -->
+    <!-- <file src="icon.png" target="" /> -->
+    <!-- LICENSE file - note: target="" may cause issues on some platforms, use target="content" if needed -->
+    <!-- <file src="LICENSE" target="" /> -->
   </files>
 </package>
+
