@@ -1,5 +1,10 @@
 # Hiberus Industria Project Templates
 
+[![NuGet Version](https://img.shields.io/nuget/v/Hiberus.Industria.Templates.svg)](https://www.nuget.org/packages/Hiberus.Industria.Templates/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Hiberus.Industria.Templates.svg)](https://www.nuget.org/packages/Hiberus.Industria.Templates/)
+[![CI Status](https://github.com/hiberus-industria/hiberus-industria-project-templates/actions/workflows/ci.yml/badge.svg)](https://github.com/hiberus-industria/hiberus-industria-project-templates/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A collection of .NET Aspire project templates for enterprise applications with Clean Architecture, Entity Framework Core, and Keycloak authentication.
 
 ## Templates
