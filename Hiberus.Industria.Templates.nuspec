@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Hiberus.Industria.Templates</id>
+    <version>0.1.0</version>
+    <title>Hiberus Industria Project Templates</title>
+    <authors>Hiberus Industria</authors>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/hiberus-industria/hiberus-industria-project-templates</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A collection of .NET Aspire project templates for enterprise applications. Includes templates for React + ASP.NET Core with Clean Architecture, Entity Framework Core, and Keycloak authentication.</description>
+    <tags>dotnet-new templates aspire react angular clean-architecture keycloak</tags>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+    <repository type="git" url="https://github.com/hiberus-industria/hiberus-industria-project-templates" />
+  </metadata>
+  <files>
+    <file src="templates\**\*" target="content" exclude="templates\**\bin\**;templates\**\obj\**;templates\**\node_modules\**;templates\**\.yarn\**;templates\**\*.log" />
+  </files>
+</package>
