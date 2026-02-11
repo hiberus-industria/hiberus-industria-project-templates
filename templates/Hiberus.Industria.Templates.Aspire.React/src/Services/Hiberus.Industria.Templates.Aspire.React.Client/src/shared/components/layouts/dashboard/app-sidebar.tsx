@@ -56,7 +56,7 @@ const data: { navMain: NavMainItem[]; navSecondary: NavSecondaryItem[] } = {
             title: "Soporte",
             url: "https://soporte.hiberus.com",
             icon: LifeBuoy,
-            openInNewTab: false,
+            openInNewTab: true,
         },
         {
             title: "Documentación",
