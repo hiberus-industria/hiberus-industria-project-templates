@@ -1,0 +1,67 @@
+# Configuration for GitHub release notes categorization
+# https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes
+
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+    authors:
+      - dependabot
+
+  categories:
+    - title: 🚀 Features
+      labels:
+        - feature
+        - enhancement
+      patterns:
+        - '^feat(\(.+\))?:'
+
+    - title: 🐛 Bug Fixes
+      labels:
+        - bug
+        - fix
+      patterns:
+        - '^fix(\(.+\))?:'
+
+    - title: 📚 Documentation
+      labels:
+        - documentation
+      patterns:
+        - '^docs(\(.+\))?:'
+
+    - title: 🏗️ Chores
+      labels:
+        - chore
+        - dependencies
+      patterns:
+        - '^chore(\(.+\))?:'
+        - '^build(\(.+\))?:'
+        - '^ci(\(.+\))?:'
+
+    - title: ⚡ Performance Improvements
+      labels:
+        - performance
+      patterns:
+        - '^perf(\(.+\))?:'
+
+    - title: 🧪 Tests
+      labels:
+        - test
+      patterns:
+        - '^test(\(.+\))?:'
+
+    - title: ♻️ Refactoring
+      labels:
+        - refactor
+      patterns:
+        - '^refactor(\(.+\))?:'
+
+    - title: 💅 Style Changes
+      labels:
+        - style
+      patterns:
+        - '^style(\(.+\))?:'
+
+    - title: 🔧 Other Changes
+      labels:
+        - "*"

@@ -1,10 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageId>Hiberus.Industria.Templates</PackageId>
-    <PackageVersion>0.1.0</PackageVersion>
+    <!-- PackageVersion can be overridden via command line, e.g., -p:PackageVersion=$(dotnet gitversion -showvariable SemVer) -->
+    <PackageVersion Condition="'$(PackageVersion)' == ''">0.1.0</PackageVersion>
     <TargetFramework>net9.0</TargetFramework>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <NuspecFile>Hiberus.Industria.Templates.nuspec</NuspecFile>
+    <NuspecProperties>version=$(PackageVersion)</NuspecProperties>
   </PropertyGroup>
 
   <ItemGroup>
