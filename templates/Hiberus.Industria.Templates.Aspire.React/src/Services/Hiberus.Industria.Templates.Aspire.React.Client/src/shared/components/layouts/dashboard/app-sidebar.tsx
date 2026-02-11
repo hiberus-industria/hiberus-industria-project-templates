@@ -1,9 +1,7 @@
 import * as React from "react";
 import {
     BookIcon,
-    TruckIcon,
     LifeBuoy,
-    LineChartIcon,
     Settings2Icon,
     LayoutDashboardIcon,
 } from "lucide-react";
@@ -37,20 +35,7 @@ const data: { navMain: NavMainItem[]; navSecondary: NavSecondaryItem[] } = {
             title: "Dashboard",
             url: "/dashboard",
             icon: LayoutDashboardIcon,
-            roles: ["operator"],
-        },
-        {
-            title: "Recepciones",
-            url: "/receptions",
-            icon: TruckIcon,
-            roles: ["operator"],
-        },
-        {
-            title: "Informes",
-            url: "/reports",
-            icon: LineChartIcon,
             roles: ["administrator"],
-            hidden: true,
         },
         {
             title: "Configuración",
@@ -63,28 +48,13 @@ const data: { navMain: NavMainItem[]; navSecondary: NavSecondaryItem[] } = {
                     url: "/config/users",
                     roles: ["administrator"],
                 },
-                {
-                    title: "Artículos",
-                    url: "/config/articles",
-                    roles: ["administrator"],
-                },
-                {
-                    title: "Almacenes",
-                    url: "/config/warehouses",
-                    roles: ["administrator"],
-                },
-                {
-                    title: "Arcos de lectura",
-                    url: "/config/reading-frames",
-                    roles: ["administrator"],
-                },
             ],
         },
     ],
     navSecondary: [
         {
             title: "Soporte",
-            url: "#",
+            url: "https://soporte.hiberus.com",
             icon: LifeBuoy,
             openInNewTab: false,
         },
@@ -130,10 +100,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                                 </div>
                                 <div className="grid flex-1 text-left text-sm leading-tight">
                                     <span className="truncate font-medium">
-                                        Volkswagen
+                                        Hiberus industria
                                     </span>
                                     <span className="truncate text-xs">
-                                        Picking
+                                        Templates Aspire React
                                     </span>
                                 </div>
                             </Link>

@@ -4,33 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* VolkswagenGroup Light Font */
-@font-face {
-    font-family: "VolkswagenGroup";
-    src: url("/fonts/VolkswagenGroupLight.woff2") format("woff2");
-    font-weight: 300; /* Light */
-    font-style: normal;
-    font-display: swap;
-}
-
-/* VolkswagenGroup Regular Font */
-@font-face {
-    font-family: "VolkswagenGroup";
-    src: url("/fonts/VolkswagenGroupRegular.woff2") format("woff2");
-    font-weight: 400; /* Regular */
-    font-style: normal;
-    font-display: swap;
-}
-
-/* VolkswagenGroup Bold Font */
-@font-face {
-    font-family: "VolkswagenGroup";
-    src: url("/fonts/VolkswagenGroupBold.woff2") format("woff2");
-    font-weight: 700; /* Bold */
-    font-style: normal;
-    font-display: swap;
-}
-
 body {
     @apply m-0;
     -webkit-font-smoothing: auto;
@@ -38,12 +11,6 @@ body {
 }
 
 :root {
-    --font-sans: "VolkswagenGroup", sans-serif;
-    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    --font-mono:
-        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-
     --radius: 8px; /* Set to 8px per Volkswagen's standard */
     --background: #ffffff; /* Pure White */
     --foreground: #002733; /* Deep Space Blue */
@@ -79,12 +46,6 @@ body {
 }
 
 .dark {
-    --font-sans: "VolkswagenGroup", sans-serif;
-    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    --font-mono:
-        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-
     --background: #1a2529; /* Darker, neutral blue-gray for better contrast */
     --foreground: #ffffff; /* Pure White */
     --card: #2d3a40; /* Slightly lighter than Dark Gray for depth */
