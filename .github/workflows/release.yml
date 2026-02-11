@@ -35,11 +35,11 @@ jobs:
           MAJOR_MINOR_PATCH=$(dotnet gitversion -showvariable MajorMinorPatch)
           echo "semver=$SEMVER" >> $GITHUB_OUTPUT
           echo "majorMinorPatch=$MAJOR_MINOR_PATCH" >> $GITHUB_OUTPUT
-          echo "Package version: $SEMVER"
+          echo "Package version: $MAJOR_MINOR_PATCH"
           echo "Git tag version: $MAJOR_MINOR_PATCH"
 
       - name: Pack template
-        run: dotnet pack -p:PackageVersion=${{ steps.gitversion.outputs.semver }} -o ./artifacts
+        run: dotnet pack -p:PackageVersion=${{ steps.gitversion.outputs.majorMinorPatch }} -o ./artifacts
 
       - name: Push to NuGet.org
         run: |
