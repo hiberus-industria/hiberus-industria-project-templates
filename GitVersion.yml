@@ -9,10 +9,12 @@ no-bump-message: '^(docs|style|test|build|ci|chore|revert)(\(.+\))?:'
 branches:
   main:
     regex: ^main$
-    mode: ContinuousDelivery
+    mode: ManualDeployment
     label: ""
     increment: Patch
     is-release-branch: true
+    track-merge-target: false
+    tracks-release-branches: false
 
   develop:
     regex: ^develop$
