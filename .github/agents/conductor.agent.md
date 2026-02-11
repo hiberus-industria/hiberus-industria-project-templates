@@ -1,6 +1,6 @@
 ---
-name: Development Conductor
-description: "Orchestrates Planning, Implementation, and Review cycle for complex tasks"
+name: Coordinador de desarrollo
+description: "Orquesta el ciclo de planificación, implementación y revisión para tareas complejas"
 tools:
     [
         "execute/getTerminalOutput",

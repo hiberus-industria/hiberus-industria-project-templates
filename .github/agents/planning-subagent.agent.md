@@ -1,5 +1,5 @@
 ---
-description: Research context and return findings to parent agent
+description: Investigar el contexto y devolver los hallazgos al agente principal
 argument-hint: Research goal or problem statement
 tools:
     [

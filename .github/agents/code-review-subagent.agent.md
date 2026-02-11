@@ -1,5 +1,5 @@
 ---
-description: "Review code changes from a completed implementation phase."
+description: "Revisa los cambios de código de una fase de implementación completada."
 tools: ["search", "search/usages", "read/problems", "search/changes"]
 model: Claude Sonnet 4.5 (copilot)
 user-invokable: false

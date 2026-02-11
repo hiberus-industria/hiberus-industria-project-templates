@@ -1,5 +1,5 @@
 ---
-description: "Execute implementation tasks delegated by the CONDUCTOR agent."
+description: "Ejecuta tareas de implementación delegadas por el agente CONDUCTOR."
 tools:
     [
         "edit",
@@ -17,7 +17,7 @@ tools:
         "web/githubRepo",
         "todo",
     ]
-model: Claude Haiku 4.5 (copilot)
+model: Claude Sonnet 4.5 (copilot)
 user-invokable: false
 ---
 
