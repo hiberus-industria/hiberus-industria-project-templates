@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "react-oidc-context";
 import { useRoles } from "./use-roles";
-import { type Role } from "./roles";
+import { Role } from "./roles";
 
 type RequireRolesProps = {
     roles?: Role[];

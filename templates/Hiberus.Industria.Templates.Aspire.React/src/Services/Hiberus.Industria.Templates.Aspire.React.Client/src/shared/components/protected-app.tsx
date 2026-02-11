@@ -21,7 +21,6 @@ export default function ProtectedApp({ children }: ProtectedAppProps) {
      * See {@link https://heyapi.dev/openapi-ts/clients/fetch#interceptors}
      */
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsInterceptorReady(false);
 
         const user = auth.user;
@@ -38,7 +37,7 @@ export default function ProtectedApp({ children }: ProtectedAppProps) {
         setIsInterceptorReady(true);
 
         return () => client.interceptors.request.eject(interceptorId);
-    }, [auth.user]);
+    }, [auth.user?.access_token]);
 
     const anyLoading = isLoading || !isInterceptorReady;
     const anyErrorMessage = error?.message;

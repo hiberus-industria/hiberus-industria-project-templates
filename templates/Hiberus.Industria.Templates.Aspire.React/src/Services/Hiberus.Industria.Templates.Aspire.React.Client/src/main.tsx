@@ -1,16 +1,18 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-
-import "./index.css";
-import { queryClient, router, setupApiClient } from "./config.ts";
-import { AuthProvider } from "react-oidc-context";
-import { onSigninCallback, userManager } from "./features/auth/oidc.ts";
 import { RouterProvider } from "@tanstack/react-router";
-import reportWebVitals from "./report-web-vitals.ts";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { NuqsAdapter } from "nuqs/adapters/react";
+import { AuthProvider } from "react-oidc-context";
+
+import "./styles.css";
+import reportWebVitals from "./reportWebVitals.ts";
+import { queryClient, router, setupApiClient } from "./config.ts";
+import { onSigninCallback, userManager } from "./features/auth/oidc.ts";
 
 setupApiClient();
 
+// Render the app
 const rootElement = document.getElementById("app");
 if (rootElement && !rootElement.innerHTML) {
     const root = ReactDOM.createRoot(rootElement);
@@ -20,9 +22,11 @@ if (rootElement && !rootElement.innerHTML) {
                 userManager={userManager}
                 onSigninCallback={onSigninCallback}
             >
-                <QueryClientProvider client={queryClient}>
-                    <RouterProvider router={router} />
-                </QueryClientProvider>
+                <NuqsAdapter>
+                    <QueryClientProvider client={queryClient}>
+                        <RouterProvider router={router} />
+                    </QueryClientProvider>
+                </NuqsAdapter>
             </AuthProvider>
         </StrictMode>,
     );

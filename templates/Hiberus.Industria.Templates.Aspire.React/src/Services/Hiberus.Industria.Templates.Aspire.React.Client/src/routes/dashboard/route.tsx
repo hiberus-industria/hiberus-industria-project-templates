@@ -10,7 +10,7 @@ export const Route = createFileRoute("/(dashboard)/dashboard")({
 
 function RouteComponent() {
     return (
-        <RequireRoles roles={["administrator"]}>
+        <RequireRoles roles={["operator"]}>
             <Outlet />
         </RequireRoles>
     );

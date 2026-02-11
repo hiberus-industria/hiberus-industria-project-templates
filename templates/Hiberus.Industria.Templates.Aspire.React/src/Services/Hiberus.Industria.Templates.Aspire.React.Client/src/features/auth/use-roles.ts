@@ -1,6 +1,6 @@
 import { useAuth } from "react-oidc-context";
 import { getRealmRoles } from "./jwt";
-import { hasAll, hasAny, hasOne, type Role } from "./roles";
+import { hasAll, hasAny, hasOne, Role } from "./roles";
 
 export function useRoles() {
     const auth = useAuth();

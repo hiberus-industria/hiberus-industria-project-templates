@@ -1,6 +1,6 @@
-// Single source of truth for configuration.
-// Reads EXCLUSIVELY from window.__RUNTIME_CONFIG__ and, if the key doesn't exist,
-// uses a fallback that you define here.
+// Fuente única de verdad para configuración.
+// Lee EXCLUSIVAMENTE de window.__RUNTIME_CONFIG__ y, si no existe la clave,
+// usa un fallback que tú definas aquí.
 
 type KnownKeys =
     | "DOCS_URL"
@@ -34,12 +34,12 @@ export function getConfig(): Readonly<AppConfig> {
         DOCS_URL: getVar("DOCS_URL", "http://localhost:3001/docs"),
         OIDC_AUTHORITY: getVar(
             "OIDC_AUTHORITY",
-            "http://localhost:8080/realms/templates-aspire-react/",
+            "http://localhost:8080/realms/volkswagen-picking/",
         ),
         OIDC_CLIENT_ID: getVar("OIDC_CLIENT_ID", "frontend"),
         OIDC_PROFILE_URL: getVar(
             "OIDC_PROFILE_URL",
-            "http://localhost:8080/realms/templates-aspire-react/account",
+            "http://localhost:8080/realms/volkswagen-picking/account",
         ),
     };
 
