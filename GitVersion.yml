@@ -12,6 +12,7 @@ branches:
     mode: ContinuousDelivery
     label: ""
     increment: Patch
+    is-release-branch: true
 
   develop:
     regex: ^develop$
