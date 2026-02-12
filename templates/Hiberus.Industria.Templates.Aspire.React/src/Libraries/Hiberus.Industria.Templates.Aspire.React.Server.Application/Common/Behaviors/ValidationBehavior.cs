@@ -15,6 +15,41 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
     where TRequest : IRequest<TResponse>
     where TResponse : ResultBase, new()
 {
+    private static readonly Action<ILogger, string, Exception?> NoValidatorFound =
+        LoggerMessage.Define<string>(
+            LogLevel.Debug,
+            new EventId(1000, nameof(NoValidatorFound)),
+            "No validator found for request type {RequestType}"
+        );
+
+    private static readonly Action<ILogger, string, Exception?> Validating =
+        LoggerMessage.Define<string>(
+            LogLevel.Debug,
+            new EventId(1001, nameof(Validating)),
+            "Validating request type {RequestType}"
+        );
+
+    private static readonly Action<ILogger, string, Exception?> ValidationPassed =
+        LoggerMessage.Define<string>(
+            LogLevel.Debug,
+            new EventId(1002, nameof(ValidationPassed)),
+            "Validation passed for request type {RequestType}"
+        );
+
+    private static readonly Action<ILogger, string, int, Exception?> ValidationFailedCount =
+        LoggerMessage.Define<string, int>(
+            LogLevel.Warning,
+            new EventId(1003, nameof(ValidationFailedCount)),
+            "Validation failed for request type {RequestType} with {ErrorCount} error(s)"
+        );
+
+    private static readonly Action<ILogger, string, string, Exception?> ValidationFailedDetails =
+        LoggerMessage.Define<string, string>(
+            LogLevel.Debug,
+            new EventId(1004, nameof(ValidationFailedDetails)),
+            "Validation errors for request type {RequestType}: {Errors}"
+        );
+
     private readonly ILogger<ValidationBehavior<TRequest, TResponse>> logger;
     private readonly IValidator<TRequest>? validator;
 
@@ -49,35 +84,17 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 
         if (this.validator == null)
         {
-            if (this.logger.IsEnabled(LogLevel.Debug))
-            {
-                this.logger.LogDebug(
-                    "No validator found for request type {RequestType}",
-                    typeof(TRequest).Name
-                );
-            }
-
+            NoValidatorFound(this.logger, typeof(TRequest).Name, null);
             return await next(cancellationToken).ConfigureAwait(false);
         }
 
-        if (this.logger.IsEnabled(LogLevel.Debug))
-        {
-            this.logger.LogDebug("Validating request type {RequestType}", typeof(TRequest).Name);
-        }
-
+        Validating(this.logger, typeof(TRequest).Name, null);
         FluentValidation.Results.ValidationResult validationResult = await this
             .validator.ValidateAsync(request, cancellationToken)
             .ConfigureAwait(false);
         if (validationResult.IsValid)
         {
-            if (this.logger.IsEnabled(LogLevel.Debug))
-            {
-                this.logger.LogDebug(
-                    "Validation passed for request type {RequestType}",
-                    typeof(TRequest).Name
-                );
-            }
-
+            ValidationPassed(this.logger, typeof(TRequest).Name, null);
             return await next(cancellationToken).ConfigureAwait(false);
         }
 
@@ -85,15 +102,19 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
             error => new ValidationFailure(error.PropertyName, error.ErrorMessage)
         );
 
-        if (this.logger.IsEnabled(LogLevel.Warning))
+        IEnumerable<string> errorMessages = errors.Select(failure =>
+            $"{failure.PropertyName}: {failure.ErrorMessage}"
+        );
+
+        ValidationFailedCount(this.logger, typeof(TRequest).Name, errors.Count, null);
+        if (this.logger.IsEnabled(LogLevel.Debug))
         {
-            IEnumerable<string> errorMessages = errors.Select(failure =>
-                $"{failure.PropertyName}: {failure.ErrorMessage}"
-            );
-            this.logger.LogWarning(
-                "Validation failed for request type {RequestType} with errors: {Errors}",
+            string formattedErrorMessages = string.Join("; ", errorMessages);
+            ValidationFailedDetails(
+                this.logger,
                 typeof(TRequest).Name,
-                string.Join(", ", errorMessages)
+                formattedErrorMessages,
+                null
             );
         }
 
