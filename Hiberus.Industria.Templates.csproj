@@ -22,11 +22,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="templates\**\*"
-          Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\node_modules\**;templates\**\.yarn\**;templates\**\*.log"
+    <None Include="templates/**/*"
+          Exclude="templates/**/bin/**;templates/**/obj/**;templates/**/node_modules/**;templates/**/.yarn/**;templates/**/*.log"
           Pack="true"
-          PackagePath="content\templates\" />
-    <None Include="icon.png" Pack="true" PackagePath="\" />
-    <None Include="README.md" Pack="true" PackagePath="\" />
+          PackagePath="content/templates/" />
+    <None Include="icon.png" Pack="true" PackagePath="/" />
+    <None Include="README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 </Project>
