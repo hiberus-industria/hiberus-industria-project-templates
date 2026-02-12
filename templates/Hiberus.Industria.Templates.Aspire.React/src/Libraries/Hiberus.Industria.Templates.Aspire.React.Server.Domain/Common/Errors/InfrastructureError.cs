@@ -41,5 +41,6 @@ public class InfrastructureError : DomainErrorBase
                     innerException?.Message
                     ?? throw new ArgumentNullException(nameof(innerException)),
             }
-        ) { }
+        )
+    { }
 }

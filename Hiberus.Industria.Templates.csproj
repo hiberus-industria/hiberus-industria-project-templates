@@ -1,17 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageId>Hiberus.Industria.Templates</PackageId>
-    <!-- PackageVersion can be overridden via command line, e.g., -p:PackageVersion=$(dotnet gitversion -showvariable SemVer) -->
-    <PackageVersion Condition="'$(PackageVersion)' == ''">0.1.0</PackageVersion>
-    <TargetFramework>net10.0</TargetFramework>
+  <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>true</IsPackable>
+    <PackageType>Template</PackageType>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <NuspecFile>Hiberus.Industria.Templates.nuspec</NuspecFile>
-    <NuspecProperties>version=$(PackageVersion)</NuspecProperties>
-    <NoWarn>$(NoWarn);NU5123</NoWarn>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <PackageId>Hiberus.Industria.Templates</PackageId>
+      <PackageVersion Condition="'$(PackageVersion)' == ''">0.1.0</PackageVersion>
+    <Title>Hiberus Industria Project Templates</Title>
+    <Authors>Hiberus Industria</Authors>
+    <Description>Production-ready .NET project templates for enterprise applications.</Description>
+    <PackageTags>dotnet-new;templates;aspire;react;angular;clean-architecture;keycloak;postgresql;entityframework;webapi;typescript;vite;opentelemetry</PackageTags>
+    <PackageProjectUrl>https://github.com/hiberus-industria/hiberus-industria-project-templates</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hiberus-industria/hiberus-industria-project-templates</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <NoWarn>$(NoWarn);NU5128;NU5123</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="**\*.cs" />
-    <EmbeddedResource Remove="**\*.resx" />
+    <None Include="templates\**\*"
+          Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\node_modules\**;templates\**\.yarn\**;templates\**\*.log"
+          Pack="true"
+          PackagePath="content\templates\" />
+    <None Include="icon.png" Pack="true" PackagePath="\" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>

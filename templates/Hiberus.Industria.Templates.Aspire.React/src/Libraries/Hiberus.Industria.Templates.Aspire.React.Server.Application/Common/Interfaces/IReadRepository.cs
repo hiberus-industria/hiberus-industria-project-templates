@@ -8,4 +8,5 @@ namespace Hiberus.Industria.Templates.Aspire.React.Server.Application.Common.Int
 /// </summary>
 /// <typeparam name="T">The type of the entity.</typeparam>
 public interface IReadRepository<T> : IReadRepositoryBase<T>
-    where T : class { }
+    where T : class
+{ }
