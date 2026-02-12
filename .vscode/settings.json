@@ -12,8 +12,6 @@
         "editor.defaultFormatter": "csharpier.csharpier-vscode"
     },
 
-    "dotnet.solution.autoOpen": "Hiberus.Industria.Templates.sln",
-
     // JavaScript/Vite settings
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
