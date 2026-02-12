@@ -16,6 +16,7 @@ Se corrigieron exitosamente todos los problemas de compatibilidad cross-platform
 - [templates/Hiberus.Industria.Templates.Aspire.React/.template.config/template.json](../templates/Hiberus.Industria.Templates.Aspire.React/.template.config/template.json)
 - [templates/Hiberus.Industria.Templates.Aspire.React/.vscode/launch.json](../templates/Hiberus.Industria.Templates.Aspire.React/.vscode/launch.json)
 - [templates/Hiberus.Industria.Templates.Aspire.React/src/Services/Hiberus.Industria.Templates.Aspire.React.Server/Hiberus.Industria.Templates.Aspire.React.Server.csproj](../templates/Hiberus.Industria.Templates.Aspire.React/src/Services/Hiberus.Industria.Templates.Aspire.React.Server/Hiberus.Industria.Templates.Aspire.React.Server.csproj)
+- [scripts/test-templates.sh](../scripts/test-templates.sh)
 - Renombrado: `Hiberus.Industria.Templates.Aspire.React.slnx` → `Templates.Aspire.React.slnx`
 
 **Key Changes Made:**
@@ -35,6 +36,11 @@ Se corrigieron exitosamente todos los problemas de compatibilidad cross-platform
     - A: `Templates.Aspire.React.slnx`
     - Coincide con el `sourceName` del template para renombrado automático correcto
 
+4. **Corrección del Script de Validación**
+   - Mejorada la lógica de validación de ProjectReferences en `test-templates.sh`
+   - Ahora usa `realpath` para resolver correctamente rutas relativas desde el directorio de cada .csproj
+   - Elimina 11 warnings falsos que aparecían en WSL2/Linux
+
 **Test Coverage:**
 
 - ✅ Template pack: Empaquetado exitoso con `dotnet pack`
@@ -47,6 +53,7 @@ Se corrigieron exitosamente todos los problemas de compatibilidad cross-platform
 - ✅ Project build: `dotnet build` exitoso con 7 proyectos compilados
 - ✅ Configuration validation: Script `validate-template-config.sh` pasa correctamente
 - ✅ Cross-platform paths: Ningún backslash encontrado en ProjectReferences del proyecto generado
+- ✅ ProjectReference validation: 11/11 referencias validadas correctamente sin warnings falsos
 
 **CI Workflow Validation:**
 
