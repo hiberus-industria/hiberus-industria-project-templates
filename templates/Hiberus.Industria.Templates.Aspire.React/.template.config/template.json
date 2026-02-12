@@ -13,7 +13,7 @@
     },
     "sources": [
         {
-            "source": "./",
+            "source": "../",
             "exclude": [
                 "**/[Bb]in/**",
                 "**/[Oo]bj/**",
