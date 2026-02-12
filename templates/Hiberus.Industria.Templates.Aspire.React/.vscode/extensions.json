@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "ms-dotnettools.csdevkit",
+        "csharpier.csharpier-vscode",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "editorconfig.editorconfig",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.powershell",
+        "github.vscode-github-actions",
+        "github.vscode-pull-request-github"
+    ]
+}

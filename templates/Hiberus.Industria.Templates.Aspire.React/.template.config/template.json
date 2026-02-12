@@ -21,18 +21,6 @@
                 "**/.yarn/install-state.gz",
                 ".template.config/**"
             ]
-        },
-        {
-            "source": "../../../",
-            "target": "./",
-            "include": [
-                ".editorconfig",
-                ".gitattributes",
-                ".gitignore",
-                ".dockerignore",
-                ".github/**",
-                ".vscode/**"
-            ]
         }
     ],
     "symbols": {

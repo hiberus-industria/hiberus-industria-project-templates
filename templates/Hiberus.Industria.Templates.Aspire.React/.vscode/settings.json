@@ -1,0 +1,25 @@
+{
+    // General editor settings
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    // C# and .NET settings
+    "csharp.suppressDotnetInstallWarning": true,
+    "[csharp]": {
+        "editor.defaultFormatter": "csharpier.csharpier-vscode"
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "csharpier.csharpier-vscode"
+    },
+
+    // JavaScript/Vite settings
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "npm.packageManager": "yarn",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "aspire.enableSettingsFileCreationPromptOnStartup": false
+}
