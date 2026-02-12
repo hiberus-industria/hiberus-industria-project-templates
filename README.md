@@ -26,6 +26,7 @@ Perfect for teams building microservices, web applications, or cloud-native solu
 A comprehensive full-stack application template with enterprise-grade features:
 
 **Backend (ASP.NET Core)**
+
 - **.NET Aspire** orchestration for distributed applications
 - **ASP.NET Core Web API** with OpenAPI documentation
 - **Clean Architecture** layers (Domain, Application, Infrastructure)
@@ -36,6 +37,7 @@ A comprehensive full-stack application template with enterprise-grade features:
 - **Health checks** and resilience patterns
 
 **Frontend (React)**
+
 - **React 18** with TypeScript
 - **Vite** for fast development and optimized builds
 - **TanStack Router** for type-safe routing
@@ -44,6 +46,7 @@ A comprehensive full-stack application template with enterprise-grade features:
 - **Type-safe API client** auto-generated from OpenAPI
 
 **Infrastructure**
+
 - **PostgreSQL** database with automatic migrations
 - **Keycloak** preconfigured with realm import
 - **PgAdmin** for database management
@@ -51,6 +54,7 @@ A comprehensive full-stack application template with enterprise-grade features:
 - **CI/CD GitHub Actions** workflows
 
 **Generated Project Structure**
+
 ```
 MyCompany.MyProject/
 ├── src/
@@ -72,7 +76,7 @@ MyCompany.MyProject/
 
 ### Prerequisites
 
-- **.NET 9 SDK** or later ([download](https://dotnet.microsoft.com/download))
+- **.NET 10 SDK** or later ([download](https://dotnet.microsoft.com/download))
 - **Docker Desktop** for running dependencies ([download](https://www.docker.com/products/docker-desktop))
 - **Node.js** (for frontend templates) ([download](https://nodejs.org/))
 
@@ -107,6 +111,7 @@ dotnet run --project src/MyCompany.MyProject.AppHost
 ```
 
 This starts the Aspire orchestrator, which will:
+
 - Launch PostgreSQL and Keycloak containers
 - Apply database migrations
 - Start the API server
@@ -114,6 +119,7 @@ This starts the Aspire orchestrator, which will:
 - Open the Aspire dashboard in your browser
 
 Access the application:
+
 - **Frontend**: http://localhost:3000
 - **API**: http://localhost:5211
 - **Aspire Dashboard**: Displayed in terminal after startup
@@ -133,11 +139,12 @@ dotnet new uninstall Hiberus.Industria.Templates
 
 ### `aspire-react` Template
 
-| Parameter | Type | Description | Default |
-|-----------|------|-------------|---------|
-| `-n, --name` | string | **Required**. Name of the project (e.g., `MyCompany.MyProject`) | - |
+| Parameter    | Type   | Description                                                     | Default |
+| ------------ | ------ | --------------------------------------------------------------- | ------- |
+| `-n, --name` | string | **Required**. Name of the project (e.g., `MyCompany.MyProject`) | -       |
 
 **Derived Parameters** (automatically generated):
+
 - `appSlug`: Kebab-case version for identifiers (e.g., `my-company-my-project`)
 - `appDisplayName`: Human-readable display name (e.g., `My Company My Project`)
 
@@ -148,6 +155,7 @@ dotnet new aspire-react -n Contoso.InventoryManagement
 ```
 
 Generates:
+
 - Namespace: `Contoso.InventoryManagement`
 - Database: `contoso-inventory-management-database`
 - Keycloak realm: `contoso-inventory-management`
@@ -157,23 +165,27 @@ Generates:
 ### Clean Architecture Layers
 
 **Domain** (`*.Server.Domain`)
+
 - Core business entities and value objects
 - Domain events and interfaces
 - No dependencies on other layers
 
 **Application** (`*.Server.Application`)
+
 - Use cases and business logic orchestration
 - CQRS command/query handlers (MediatR)
 - DTOs and mapping profiles
 - Validation rules (FluentValidation)
 
 **Infrastructure** (`*.Server.Infrastructure`)
+
 - Entity Framework Core DbContext
 - Database migrations
 - Keycloak integration
 - External service implementations
 
 **Presentation** (`*.Server`)
+
 - ASP.NET Core Web API
 - Controllers and middleware
 - OpenAPI configuration
@@ -182,6 +194,7 @@ Generates:
 ### Service Defaults
 
 Common cross-cutting concerns:
+
 - OpenTelemetry configuration
 - Health checks
 - Service discovery
@@ -189,12 +202,13 @@ Common cross-cutting concerns:
 
 ## Requirements
 
-- **.NET 9 SDK** or later
+- **.NET 10 SDK** or later
 - **Docker Desktop** (or Docker Engine) for local development
 - **Node.js 18+** and **Yarn** (for frontend templates)
 - **Git** for version control
 
 For production deployments:
+
 - Container orchestrator (Kubernetes, Azure Container Apps, etc.)
 - PostgreSQL database
 - Keycloak server (or alternative OAuth2/OIDC provider)
@@ -248,7 +262,9 @@ dotnet new uninstall Hiberus.Industria.Templates
 This project includes comprehensive GitHub Actions workflows:
 
 ### CI Workflow (`.github/workflows/ci.yml`)
+
 Runs on every push and pull request:
+
 - Validates template configurations
 - Builds the NuGet package
 - Tests template generation
@@ -256,7 +272,9 @@ Runs on every push and pull request:
 - Runs validation scripts
 
 ### Release Workflow (`.github/workflows/release.yml`)
+
 Runs on tags (e.g., `v1.0.0`):
+
 - Uses **GitVersion** for semantic versioning based on conventional commits
 - Builds the NuGet package with calculated version
 - Creates GitHub Release with auto-generated changelog
@@ -264,7 +282,9 @@ Runs on tags (e.g., `v1.0.0`):
 - Updates documentation
 
 ### Manual Release Workflow (`.github/workflows/release-manual.yml`)
+
 For on-demand releases:
+
 - Allows specifying a custom version
 - Same build and publish steps as automated release
 - Useful for hotfixes or special releases
@@ -274,9 +294,9 @@ For on-demand releases:
 - **Semantic Versioning**: MAJOR.MINOR.PATCH
 - **GitVersion**: Analyzes commit history using conventional commits
 - **Conventional Commits**:
-  - `feat:` triggers MINOR bump
-  - `fix:` triggers PATCH bump
-  - `BREAKING CHANGE:` triggers MAJOR bump
+    - `feat:` triggers MINOR bump
+    - `fix:` triggers PATCH bump
+    - `BREAKING CHANGE:` triggers MAJOR bump
 
 ## Contributing
 
@@ -314,6 +334,7 @@ Quick contribution steps:
 ## Roadmap
 
 Planned templates:
+
 - **Aspire Angular** - Similar to aspire-react but with Angular
 - **Minimal API** - Lightweight API template without Clean Architecture
 - **Blazor WebAssembly** - Blazor WASM with Aspire backend

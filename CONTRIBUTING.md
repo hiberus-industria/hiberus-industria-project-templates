@@ -26,18 +26,18 @@ This project adheres to professional and respectful collaboration standards. We 
 
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/hiberus-industria-project-templates.git
-   cd hiberus-industria-project-templates
-   ```
+    ```bash
+    git clone https://github.com/YOUR-USERNAME/hiberus-industria-project-templates.git
+    cd hiberus-industria-project-templates
+    ```
 3. **Add upstream remote**:
-   ```bash
-   git remote add upstream https://github.com/hiberus-industria/hiberus-industria-project-templates.git
-   ```
+    ```bash
+    git remote add upstream https://github.com/hiberus-industria/hiberus-industria-project-templates.git
+    ```
 4. **Install prerequisites**:
-   - .NET 9+ SDK
-   - Docker Desktop (for testing templates)
-   - Node.js (for frontend templates)
+    - .NET 10+ SDK
+    - Docker Desktop (for testing templates)
+    - Node.js (for frontend templates)
 
 ## How to Contribute
 
@@ -46,11 +46,11 @@ This project adheres to professional and respectful collaboration standards. We 
 - Use the [GitHub Issues](https://github.com/hiberus-industria/hiberus-industria-project-templates/issues) tracker
 - Check if the issue already exists before creating a new one
 - Include:
-  - Clear description of the problem
-  - Steps to reproduce
-  - Expected vs actual behavior
-  - .NET SDK version, OS, Docker version
-  - Generated project structure (if applicable)
+    - Clear description of the problem
+    - Steps to reproduce
+    - Expected vs actual behavior
+    - .NET SDK version, OS, Docker version
+    - Generated project structure (if applicable)
 
 ### Requesting Features
 
@@ -76,53 +76,57 @@ This project adheres to professional and respectful collaboration standards. We 
 ### Making Changes
 
 1. **Create a feature branch** from `main`:
-   ```bash
-   git checkout main
-   git pull upstream main
-   git checkout -b feature/my-new-feature
-   ```
+
+    ```bash
+    git checkout main
+    git pull upstream main
+    git checkout -b feature/my-new-feature
+    ```
 
 2. **Make your changes**:
-   - Keep commits focused and atomic
-   - Write clear commit messages (see guidelines below)
-   - Test your changes locally
+    - Keep commits focused and atomic
+    - Write clear commit messages (see guidelines below)
+    - Test your changes locally
 
 3. **Build and test**:
-   ```bash
-   # Build the template pack
-   dotnet pack -c Release -o ./artifacts
 
-   # Test template installation
-   dotnet new install ./artifacts/Hiberus.Industria.Templates.*.nupkg
+    ```bash
+    # Build the template pack
+    dotnet pack -c Release -o ./artifacts
 
-   # Generate a test project
-   dotnet new aspire-react -n TestProject -o ./test-output
+    # Test template installation
+    dotnet new install ./artifacts/Hiberus.Industria.Templates.*.nupkg
 
-   # Verify the generated project builds
-   cd test-output/TestProject
-   dotnet build
-   dotnet run --project src/TestProject.AppHost
-   ```
+    # Generate a test project
+    dotnet new aspire-react -n TestProject -o ./test-output
+
+    # Verify the generated project builds
+    cd test-output/TestProject
+    dotnet build
+    dotnet run --project src/TestProject.AppHost
+    ```
 
 4. **Run validation scripts**:
-   ```bash
-   # Validate template configurations
-   ./scripts/validate-template-config.sh
 
-   # Test all templates
-   ./scripts/test-templates.sh
-   ```
+    ```bash
+    # Validate template configurations
+    ./scripts/validate-template-config.sh
+
+    # Test all templates
+    ./scripts/test-templates.sh
+    ```
 
 5. **Commit your changes**:
-   ```bash
-   git add .
-   git commit -m "feat: add new database migration feature"
-   ```
+
+    ```bash
+    git add .
+    git commit -m "feat: add new database migration feature"
+    ```
 
 6. **Push to your fork**:
-   ```bash
-   git push origin feature/my-new-feature
-   ```
+    ```bash
+    git push origin feature/my-new-feature
+    ```
 
 ## Commit Message Guidelines
 
@@ -164,12 +168,13 @@ BREAKING CHANGE: Projects generated with this template now default to PostgreSQL
 feat(aspire-react): add authentication scaffolding
 fix(template): correct namespace resolution in template.json
 docs: update installation instructions in README
-chore: upgrade to .NET 9.0
+chore: upgrade to .NET 10.0
 ```
 
 ### Scope
 
 Optional, use template name or component:
+
 - `aspire-react`
 - `template`
 - `ci`
@@ -178,80 +183,83 @@ Optional, use template name or component:
 ## Pull Request Process
 
 1. **Ensure your branch is up to date**:
-   ```bash
-   git fetch upstream
-   git rebase upstream/main
-   ```
+
+    ```bash
+    git fetch upstream
+    git rebase upstream/main
+    ```
 
 2. **Create a Pull Request** on GitHub:
-   - Use a clear, descriptive title
-   - Reference related issues (`Fixes #123`)
-   - Describe what changes were made and why
-   - Include testing steps
+    - Use a clear, descriptive title
+    - Reference related issues (`Fixes #123`)
+    - Describe what changes were made and why
+    - Include testing steps
 
 3. **PR Review**:
-   - Address reviewer feedback
-   - Keep the PR focused (one feature/fix per PR)
-   - Be patient and responsive
+    - Address reviewer feedback
+    - Keep the PR focused (one feature/fix per PR)
+    - Be patient and responsive
 
 4. **Automated Checks**:
-   - CI build must pass
-   - Template validation must succeed
-   - All tests must pass
+    - CI build must pass
+    - Template validation must succeed
+    - All tests must pass
 
 5. **Merge**:
-   - Squash commits if there are many small commits
-   - Maintainers will merge when approved
+    - Squash commits if there are many small commits
+    - Maintainers will merge when approved
 
 ## Template Development Guidelines
 
 ### Adding a New Template
 
 1. **Create template directory**:
-   ```
-   templates/
-     Hiberus.Industria.Templates.YourTemplate/
-       .template.config/
-         template.json
-       README.md
-       <template files>
-   ```
+
+    ```
+    templates/
+      Hiberus.Industria.Templates.YourTemplate/
+        .template.config/
+          template.json
+        README.md
+        <template files>
+    ```
 
 2. **Configure template.json**:
-   ```json
-   {
-     "$schema": "http://json.schemastore.org/template",
-     "author": "Hiberus Industria",
-     "classifications": ["Web", "Aspire", "..."],
-     "identity": "Hiberus.Industria.Templates.YourTemplate",
-     "name": "Hiberus Industria Your Template",
-     "shortName": "your-template",
-     "tags": {
-       "language": "C#",
-       "type": "project"
-     },
-     "sourceName": "Hiberus.Industria.Templates.YourTemplate",
-     "symbols": {
-       "name": {
-         "type": "parameter",
-         "datatype": "string",
-         "isRequired": true,
-         "description": "The name of the project"
-       }
-     }
-   }
-   ```
+
+    ```json
+    {
+        "$schema": "http://json.schemastore.org/template",
+        "author": "Hiberus Industria",
+        "classifications": ["Web", "Aspire", "..."],
+        "identity": "Hiberus.Industria.Templates.YourTemplate",
+        "name": "Hiberus Industria Your Template",
+        "shortName": "your-template",
+        "tags": {
+            "language": "C#",
+            "type": "project"
+        },
+        "sourceName": "Hiberus.Industria.Templates.YourTemplate",
+        "symbols": {
+            "name": {
+                "type": "parameter",
+                "datatype": "string",
+                "isRequired": true,
+                "description": "The name of the project"
+            }
+        }
+    }
+    ```
 
 3. **Add template README**:
-   - Describe what the template generates
-   - List prerequisites
-   - Provide usage instructions
-   - Document parameters
+    - Describe what the template generates
+    - List prerequisites
+    - Provide usage instructions
+    - Document parameters
 
 4. **Test thoroughly**:
-   - Generate projects with different parameter values
-   - Ensure generated projects build and run
-   - Test on multiple platforms (Windows, macOS, Linux)
+    - Generate projects with different parameter values
+    - Ensure generated projects build and run
+    - Test on multiple platforms (Windows, macOS, Linux)
 
 ### Modifying Existing Templates
 
@@ -275,37 +283,42 @@ Optional, use template name or component:
 ### Local Testing
 
 1. **Build the package**:
-   ```bash
-   dotnet pack -c Release -o ./artifacts
-   ```
+
+    ```bash
+    dotnet pack -c Release -o ./artifacts
+    ```
 
 2. **Install locally**:
-   ```bash
-   dotnet new uninstall Hiberus.Industria.Templates || true
-   dotnet new install ./artifacts/Hiberus.Industria.Templates.*.nupkg
-   ```
+
+    ```bash
+    dotnet new uninstall Hiberus.Industria.Templates || true
+    dotnet new install ./artifacts/Hiberus.Industria.Templates.*.nupkg
+    ```
 
 3. **Generate test project**:
-   ```bash
-   dotnet new aspire-react -n TestCompany.TestProject -o ../test-projects/test1
-   ```
+
+    ```bash
+    dotnet new aspire-react -n TestCompany.TestProject -o ../test-projects/test1
+    ```
 
 4. **Verify generated project**:
-   ```bash
-   cd ../test-projects/test1/TestCompany.TestProject
-   dotnet restore
-   dotnet build
-   dotnet run --project src/TestCompany.TestProject.AppHost
-   ```
+
+    ```bash
+    cd ../test-projects/test1/TestCompany.TestProject
+    dotnet restore
+    dotnet build
+    dotnet run --project src/TestCompany.TestProject.AppHost
+    ```
 
 5. **Test with different parameters**:
-   ```bash
-   # Test with different names
-   dotnet new aspire-react -n MyCompany.MyApp -o ../test-projects/test2
 
-   # Test with special characters
-   dotnet new aspire-react -n "My-App" -o ../test-projects/test3
-   ```
+    ```bash
+    # Test with different names
+    dotnet new aspire-react -n MyCompany.MyApp -o ../test-projects/test2
+
+    # Test with special characters
+    dotnet new aspire-react -n "My-App" -o ../test-projects/test3
+    ```
 
 ### Automated Testing
 

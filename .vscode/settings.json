@@ -12,7 +12,7 @@
         "editor.defaultFormatter": "csharpier.csharpier-vscode"
     },
 
-    "dotnet.defaultSolution": "Hiberus.Industria.Templates.Aspire.React.sln",
+    "dotnet.solution.autoOpen": "Hiberus.Industria.Templates.sln",
 
     // JavaScript/Vite settings
     "[javascript]": {
@@ -22,5 +22,6 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "npm.packageManager": "yarn",
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "aspire.enableSettingsFileCreationPromptOnStartup": false
 }
