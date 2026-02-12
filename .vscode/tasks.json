@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Pack template nupkg",
+            "type": "shell",
+            "command": "dotnet",
+            "args": [
+                "pack",
+                "Hiberus.Industria.Templates.csproj",
+                "-c",
+                "Release",
+                "-o",
+                "artifacts"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

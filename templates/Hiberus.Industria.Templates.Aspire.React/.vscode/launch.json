@@ -8,7 +8,7 @@
             "name": "C#: Hiberus.Industria.Templates.Aspire.React.AppHost [https]",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}\\src\\Hiberus.Industria.Templates.Aspire.React.AppHost\\Hiberus.Industria.Templates.Aspire.React.AppHost.csproj",
+            "projectPath": "${workspaceFolder}/src/Hiberus.Industria.Templates.Aspire.React.AppHost/Hiberus.Industria.Templates.Aspire.React.AppHost.csproj",
             "launchConfigurationId": "TargetFramework=;https"
         }
     ]

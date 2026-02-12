@@ -129,19 +129,29 @@ echo ""
 
 # Check for missing references (look for obvious issues in .csproj)
 echo "✓ Checking project references..."
-CSPROJ_WITH_REFS=$(find ./src -name "*.csproj" -exec grep -l "ProjectReference" {} + | wc -l | tr -d ' ')
+CSPROJ_WITH_REFS=$(find ./src -name "*.csproj" -exec grep -l "ProjectReference" {} + 2>/dev/null | wc -l | tr -d ' ')
 if [ "$CSPROJ_WITH_REFS" -gt 0 ]; then
     echo "  ✓ Found $CSPROJ_WITH_REFS project(s) with ProjectReferences"
 
-    # Check that referenced projects exist
-    while IFS= read -r ref; do
-        if [ -n "$ref" ]; then
-            # Convert relative path to absolute
-            if [ ! -f "./src/$ref" ] && [ ! -f "./$ref" ]; then
-                echo "  WARNING: Referenced project not found: $ref"
+    # Check that referenced projects exist (resolve relative paths correctly)
+    MISSING_REFS=0
+    while IFS= read -r csproj_file; do
+        CSPROJ_DIR=$(dirname "$csproj_file")
+        while IFS= read -r ref; do
+            if [ -n "$ref" ]; then
+                # Resolve relative path from the .csproj directory
+                RESOLVED_PATH=$(cd "$CSPROJ_DIR" && realpath -m "$ref" 2>/dev/null || echo "")
+                if [ -n "$RESOLVED_PATH" ] && [ ! -f "$RESOLVED_PATH" ]; then
+                    echo "  WARNING: Referenced project not found: $ref (from $(basename $csproj_file))"
+                    MISSING_REFS=$((MISSING_REFS + 1))
+                fi
             fi
-        fi
-    done < <(find ./src -name "*.csproj" -exec grep -h "ProjectReference Include=" {} + | sed 's/.*Include="\([^"]*\)".*/\1/')
+        done < <(grep "ProjectReference Include=" "$csproj_file" 2>/dev/null | sed 's/.*Include="\([^"]*\)".*/\1/')
+    done < <(find ./src -name "*.csproj" 2>/dev/null)
+
+    if [ "$MISSING_REFS" -eq 0 ]; then
+        echo "  ✓ All ProjectReferences are valid"
+    fi
 else
     echo "  Note: No ProjectReferences found (might be expected for some templates)"
 fi
