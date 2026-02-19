@@ -1,7 +1,7 @@
 ---
 description: "Revisa los cambios de código de una fase de implementación completada."
 tools: ["search", "search/usages", "read/problems", "search/changes"]
-model: Claude Sonnet 4.5 (copilot)
+model: Claude Sonnet 4.6 (copilot)
 user-invokable: false
 ---
 
